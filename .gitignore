@@ -28,3 +28,6 @@ Thumbs.db
 *.csv
 *.json
 *.pickle
+
+# ...but keep benchmark results for submission
+!benchmarks/results/*.csv
