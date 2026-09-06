@@ -1,0 +1,6 @@
+algorithm,best_fit,r_squared,avg_doubling_ratio
+bubble_sort,O(n²),1.0000,3.993
+selection_sort,O(n²),1.0000,3.668
+insertion_sort,O(n²),1.0000,3.898
+merge_sort,O(n²),1.0000,1.149
+quick_sort,O(n²),1.0000,1.238
