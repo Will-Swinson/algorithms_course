@@ -28,11 +28,14 @@ src/sorting/basic_sorts.py    Bubble, selection, and insertion sort (Week 1)
 src/sorting/merge_sort.py     Merge sort with merge helper (Week 2)
 src/sorting/quick_sort.py     Randomized quicksort: three-way partition,
                               insertion-sort cutoff (Week 2)
+src/structures/heap.py        MinHeap, MaxHeap, PriorityQueue (Week 3)
+src/structures/avl_tree.py    Self-balancing AVL tree (Week 3)
+src/structures/hash_table.py  Chaining + linear-probing hash tables (Week 3)
 src/utils/benchmark.py        Reusable benchmarking framework
 tests/                        Pytest test suite
 benchmarks/                   Benchmark runners + raw results (CSV, PNG)
-analysis/week2_report.md      Week 2 technical report
-examples/week2_demo.py        Runnable demo of all five sorts
+analysis/                     Week 2 and Week 3 technical reports
+examples/                     Runnable demos (week2_demo.py, week3_demo.py)
 docs/performance_analysis.md  Week 1 performance report with charts
 docs/images/                  Week 1 benchmark visualizations
 ```
@@ -65,10 +68,22 @@ Writes per-data-type plots, `comparison_table.csv`, and
 roughly an hour (the O(n²) sorts at n = 50,000 dominate); results are
 appended incrementally, so an interrupted run resumes where it left off.
 
-## Demo
+Week 3 (heaps, AVL tree, hash tables vs Python built-ins, n up to 10⁶):
 
 ```bash
-python examples/week2_demo.py
+python benchmarks/week3_structures_benchmark.py
+```
+
+Writes `heap_performance.png`, `tree_performance.png`,
+`hash_performance.png`, `complexity_shapes.png`, and
+`comparison_table.csv` to `benchmarks/results/` (runs in under a
+minute).
+
+## Demos
+
+```bash
+python examples/week2_demo.py   # the five sorting algorithms
+python examples/week3_demo.py   # priority queue, AVL balance, hashing
 ```
 
 ## Current Progress
@@ -77,7 +92,9 @@ python examples/week2_demo.py
       framework, test suite, and performance analysis
 - [x] Week 2: Divide and conquer — merge sort, randomized quicksort,
       full 5-algorithm benchmark comparison, and technical report
-- [ ] Week 3: Search algorithms
+- [x] Week 3: Core data structures — binary heaps + priority queue,
+      AVL tree, hash tables (chaining and linear probing), benchmark
+      comparison against Python built-ins, and technical report
 
 ## Author
 
