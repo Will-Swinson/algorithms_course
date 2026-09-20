@@ -31,7 +31,13 @@ src/sorting/quick_sort.py     Randomized quicksort: three-way partition,
 src/structures/heap.py        MinHeap, MaxHeap, PriorityQueue (Week 3)
 src/structures/avl_tree.py    Self-balancing AVL tree (Week 3)
 src/structures/hash_table.py  Chaining + linear-probing hash tables (Week 3)
+src/graphs/graph.py           Graph: adjacency list + matrix (Week 4)
+src/graphs/bfs.py             Breadth-first search (Week 4)
+src/graphs/dfs.py             Depth-first search, iterative + recursive (Week 4)
+src/graphs/dijkstra.py        Dijkstra via Week 3 MinHeap (Week 4)
 src/utils/benchmark.py        Reusable benchmarking framework
+src/utils/graph_generator.py  Seeded random graph generators (Week 4)
+src/utils/visualization.py    networkx traversal-order drawings (Week 4)
 tests/                        Pytest test suite
 benchmarks/                   Benchmark runners + raw results (CSV, PNG)
 analysis/                     Week 2 and Week 3 technical reports
@@ -79,11 +85,24 @@ Writes `heap_performance.png`, `tree_performance.png`,
 `comparison_table.csv` to `benchmarks/results/` (runs in under a
 minute).
 
+Week 4 (graph representations, BFS/DFS, Dijkstra):
+
+```bash
+python benchmarks/week4_graph_benchmark.py
+```
+
+Writes `bfs_vs_dfs_sparse.png`, `bfs_vs_dfs_dense.png`,
+`dijkstra_performance.png`, traversal-order drawings
+(`traversal_bfs.png`, `traversal_dfs.png`, `shortest_path.png`), and
+`comparison_table.csv` to `benchmarks/results/` (runs in under a
+minute).
+
 ## Demos
 
 ```bash
 python examples/week2_demo.py   # the five sorting algorithms
 python examples/week3_demo.py   # priority queue, AVL balance, hashing
+python examples/week4_demo.py   # graph representations, BFS/DFS, Dijkstra
 ```
 
 ## Current Progress
@@ -95,6 +114,9 @@ python examples/week3_demo.py   # priority queue, AVL balance, hashing
 - [x] Week 3: Core data structures — binary heaps + priority queue,
       AVL tree, hash tables (chaining and linear probing), benchmark
       comparison against Python built-ins, and technical report
+- [x] Week 4: Graphs — adjacency list/matrix representations, BFS and
+      DFS traversals, Dijkstra's shortest paths (heap vs list PQ),
+      traversal visualizations, and technical report
 
 ## Author
 
