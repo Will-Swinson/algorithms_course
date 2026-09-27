@@ -6,12 +6,16 @@ draw_traversal() renders the graph with nodes numbered and colored by
 visit order, so BFS's expanding rings and DFS's deep probing are
 visible at a glance. Kept separate from the algorithms: they return
 plain visit-order lists, and this module only consumes them.
+
+plot_dp_comparison() (Week 5) draws the recursive-vs-DP dashboard:
+time, calls, speedup, and peak memory against input size.
 """
-from typing import Any, List, Optional
+from typing import Any, Dict, List, Optional, Sequence
 
 import matplotlib
 matplotlib.use("Agg")  # headless: write PNGs, never open a window
 import matplotlib.pyplot as plt
+from matplotlib.ticker import NullFormatter, ScalarFormatter
 import networkx as nx
 
 from src.graphs.graph import Graph
@@ -105,3 +109,96 @@ def draw_traversal(graph: Graph, order: List[Any], save_path: str,
     plt.tight_layout()
     plt.savefig(save_path, dpi=150)
     plt.close()
+
+
+# ---------------------------------------------------------------------------
+# Week 5: recursive vs dynamic-programming comparison
+# ---------------------------------------------------------------------------
+
+DP_COLORS = {
+    "recursive": "tab:red",
+    "memoization": "tab:blue",
+    "tabulation": "tab:green",
+}
+
+
+def plot_dp_comparison(series: Dict[str, Dict[str, Sequence[float]]],
+                       save_path: str, title: str,
+                       x_label: str = "Input size (n)",
+                       baseline: str = "recursive",
+                       log_x: bool = False) -> None:
+    """
+    Four-panel comparison of solution methods for one problem:
+    time (log y), calls (log y), speedup over `baseline`, and peak
+    memory. Methods may cover different sizes — typically the
+    exponential baseline stops early while DP keeps going.
+
+    Args:
+        series: {method: {"sizes": [...], "time": [...],
+                 "calls": [...], "memory": [...]}}. "memory" may be
+                 omitted for a method or hold None where not measured.
+        save_path: Output PNG path.
+        title: Figure title.
+        x_label: Label for the input-size axis.
+        baseline: Method that speedup is measured against.
+        log_x: Log-scale the x axis (for sizes spanning decades).
+    """
+    fig, axes = plt.subplots(2, 2, figsize=(13, 9))
+    (ax_time, ax_calls), (ax_speed, ax_mem) = axes
+
+    for method, data in series.items():
+        color = DP_COLORS.get(method)
+        ax_time.plot(data["sizes"], data["time"], marker="o",
+                     color=color, label=method)
+        ax_calls.plot(data["sizes"], data["calls"], marker="o",
+                      color=color, label=method)
+        memory = data.get("memory")
+        if memory:
+            # 0-byte readings (nothing allocated) can't sit on a log axis
+            points = [(s, m) for s, m in zip(data["sizes"], memory)
+                      if m]
+            if points:
+                ax_mem.plot([p[0] for p in points],
+                            [p[1] / 1024 for p in points],
+                            marker="o", color=color, label=method)
+
+    if baseline in series:
+        base = dict(zip(series[baseline]["sizes"],
+                        series[baseline]["time"]))
+        for method, data in series.items():
+            if method == baseline:
+                continue
+            points = [(s, base[s] / t) for s, t in
+                      zip(data["sizes"], data["time"]) if s in base and t]
+            if points:
+                ax_speed.plot([p[0] for p in points],
+                              [p[1] for p in points], marker="o",
+                              color=DP_COLORS.get(method),
+                              label=f"{method} vs {baseline}")
+
+    panels = [
+        (ax_time, "Time (s, log scale)", "Execution time"),
+        (ax_calls, "Calls / cells evaluated (log scale)",
+         "Subproblem evaluations"),
+        (ax_speed, "Speedup (×, log scale)",
+         f"Speedup over {baseline}"),
+        (ax_mem, "Peak memory (KiB, log scale)",
+         "Peak heap memory (tracemalloc)"),
+    ]
+    for ax, y_label, panel_title in panels:
+        ax.set_yscale("log")
+        if log_x:
+            ax.set_xscale("log")
+            ax.xaxis.set_major_formatter(ScalarFormatter())
+            ax.xaxis.set_minor_formatter(NullFormatter())
+        ax.set_xlabel(x_label)
+        ax.set_ylabel(y_label)
+        ax.set_title(panel_title)
+        ax.grid(True, which="both", alpha=0.3)
+        if ax.get_lines():
+            ax.legend()
+
+    fig.suptitle(title, fontsize=14, fontweight="bold")
+    fig.tight_layout()
+    fig.savefig(save_path, dpi=150)
+    plt.close(fig)
