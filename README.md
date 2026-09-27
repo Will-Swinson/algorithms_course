@@ -35,13 +35,21 @@ src/graphs/graph.py           Graph: adjacency list + matrix (Week 4)
 src/graphs/bfs.py             Breadth-first search (Week 4)
 src/graphs/dfs.py             Depth-first search, iterative + recursive (Week 4)
 src/graphs/dijkstra.py        Dijkstra via Week 3 MinHeap (Week 4)
+src/dp/fibonacci.py           Fibonacci: naive, memoized, tabulated (Week 5)
+src/dp/knapsack.py            0/1 knapsack: recursive, memoized, tabulated,
+                              trace_solution() item recovery (Week 5)
+src/dp/lcs.py                 Longest common subsequence: recursive,
+                              memoized, tabulated + reconstruction (Week 5)
 src/utils/benchmark.py        Reusable benchmarking framework
 src/utils/graph_generator.py  Seeded random graph generators (Week 4)
-src/utils/visualization.py    networkx traversal-order drawings (Week 4)
+src/utils/timer.py            Call/recursion-depth counter, timing, and
+                              tracemalloc memory helpers (Week 5)
+src/utils/visualization.py    networkx traversal-order drawings (Week 4),
+                              recursive-vs-DP comparison plots (Week 5)
 tests/                        Pytest test suite
 benchmarks/                   Benchmark runners + raw results (CSV, PNG)
-analysis/                     Week 2 and Week 3 technical reports
-examples/                     Runnable demos (week2_demo.py, week3_demo.py)
+analysis/                     Weekly technical reports (Weeks 2-5)
+examples/                     Runnable demos (week2_demo.py .. week5_demo.py)
 docs/performance_analysis.md  Week 1 performance report with charts
 docs/images/                  Week 1 benchmark visualizations
 ```
@@ -97,12 +105,27 @@ Writes `bfs_vs_dfs_sparse.png`, `bfs_vs_dfs_dense.png`,
 `comparison_table.csv` to `benchmarks/results/` (runs in under a
 minute).
 
+Week 5 (dynamic programming: Fibonacci, knapsack, LCS):
+
+```bash
+python benchmarks/week5_dp_benchmark.py          # ~2 min
+python benchmarks/week5_dp_benchmark.py --quick  # skips naive fib(40), fib(45)
+```
+
+Compares naive recursion against memoization and tabulation on time,
+calls, recursion depth, and peak memory. Writes
+`fibonacci_comparison.png`, `knapsack_performance.png`,
+`lcs_performance.png`, and `dp_vs_recursive_table.csv` to
+`benchmarks/results/`. Most of the runtime is naive `fib(45)` alone
+(~80 s, 3.7 billion calls).
+
 ## Demos
 
 ```bash
 python examples/week2_demo.py   # the five sorting algorithms
 python examples/week3_demo.py   # priority queue, AVL balance, hashing
 python examples/week4_demo.py   # graph representations, BFS/DFS, Dijkstra
+python examples/week5_demo.py   # DP: call explosion, project picking, DNA LCS
 ```
 
 ## Current Progress
@@ -117,6 +140,9 @@ python examples/week4_demo.py   # graph representations, BFS/DFS, Dijkstra
 - [x] Week 4: Graphs — adjacency list/matrix representations, BFS and
       DFS traversals, Dijkstra's shortest paths (heap vs list PQ),
       traversal visualizations, and technical report
+- [x] Week 5: Dynamic programming — Fibonacci, 0/1 knapsack, and LCS
+      as naive recursion, memoization, and tabulation; call/depth/
+      memory benchmarking, speedup visualizations, and technical report
 
 ## Author
 
