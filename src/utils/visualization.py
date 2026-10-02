@@ -9,6 +9,10 @@ plain visit-order lists, and this module only consumes them.
 
 plot_dp_comparison() (Week 5) draws the recursive-vs-DP dashboard:
 time, calls, speedup, and peak memory against input size.
+
+plot_metric_panels() and plot_table_heatmap() (Week 6) are the
+general-purpose versions: any grid of line charts with optional
+dashed reference curves, and a DP table drawn as an annotated heatmap.
 """
 from typing import Any, Dict, List, Optional, Sequence
 
@@ -119,6 +123,9 @@ DP_COLORS = {
     "recursive": "tab:red",
     "memoization": "tab:blue",
     "tabulation": "tab:green",
+    "bottom_up": "tab:green",
+    "brute_force": "tab:red",
+    "bitmask": "tab:green",
 }
 
 
@@ -199,6 +206,111 @@ def plot_dp_comparison(series: Dict[str, Dict[str, Sequence[float]]],
             ax.legend()
 
     fig.suptitle(title, fontsize=14, fontweight="bold")
+    fig.tight_layout()
+    fig.savefig(save_path, dpi=150)
+    plt.close(fig)
+
+
+# ---------------------------------------------------------------------------
+# Week 6: general metric grids and DP-table heatmaps
+# ---------------------------------------------------------------------------
+
+def plot_metric_panels(panels: List[Dict[str, Any]], save_path: str,
+                       title: str, ncols: int = 2) -> None:
+    """
+    Grid of line charts, one per panel dict:
+
+        {"title": str, "xlabel": str, "ylabel": str,
+         "series": {label: (xs, ys)},          # solid lines with markers
+         "refs": {label: (xs, ys)},            # optional dashed guides
+         "colors": {label: color},             # optional, series + refs
+         "logx": bool, "logy": bool}           # optional, default False
+
+    Points whose y is None or non-positive on a log axis are dropped,
+    so partially measured series still plot.
+    """
+    nrows = (len(panels) + ncols - 1) // ncols
+    fig, axes = plt.subplots(nrows, ncols, figsize=(6.5 * ncols,
+                                                     4.5 * nrows),
+                             squeeze=False)
+    for ax, panel in zip(axes.flat, panels):
+        logy = panel.get("logy", False)
+        colors = panel.get("colors", {})
+
+        def clean(xs, ys):
+            return [(x, y) for x, y in zip(xs, ys)
+                    if y is not None and (y > 0 or not logy)]
+
+        for label, (xs, ys) in panel["series"].items():
+            pts = clean(xs, ys)
+            if pts:
+                ax.plot([p[0] for p in pts], [p[1] for p in pts],
+                        marker="o", label=label, color=colors.get(label))
+        for label, (xs, ys) in panel.get("refs", {}).items():
+            pts = clean(xs, ys)
+            if pts:
+                ax.plot([p[0] for p in pts], [p[1] for p in pts],
+                        linestyle="--", color=colors.get(label, "gray"),
+                        alpha=0.7, label=label)
+        if panel.get("logx"):
+            ax.set_xscale("log")
+            # label the measured sizes rather than sparse powers of 10
+            xs_all = sorted({x for xs, _ in panel["series"].values()
+                             for x in xs})
+            if 0 < len(xs_all) <= 12:
+                ax.set_xticks(xs_all)
+            ax.xaxis.set_major_formatter(ScalarFormatter())
+            ax.xaxis.set_minor_formatter(NullFormatter())
+        if logy:
+            ax.set_yscale("log")
+        ax.set_title(panel["title"])
+        ax.set_xlabel(panel["xlabel"])
+        ax.set_ylabel(panel["ylabel"])
+        ax.grid(True, which="both", alpha=0.3)
+        if ax.get_lines():
+            ax.legend(fontsize=9)
+    for ax in list(axes.flat)[len(panels):]:
+        ax.axis("off")
+
+    fig.suptitle(title, fontsize=14, fontweight="bold")
+    fig.tight_layout()
+    fig.savefig(save_path, dpi=150)
+    plt.close(fig)
+
+
+def plot_table_heatmap(table: List[List[Optional[float]]], save_path: str,
+                       title: str, row_labels: Sequence[Any],
+                       col_labels: Sequence[Any],
+                       annotations: Optional[List[List[str]]] = None,
+                       cmap: str = "YlOrRd") -> None:
+    """
+    Draw a DP table as a heatmap. None cells (unused, e.g. the lower
+    triangle of an interval-DP table) are left blank; `annotations`
+    optionally overrides each cell's printed text.
+    """
+    import numpy as np
+
+    data = np.array([[np.nan if v is None else v for v in row]
+                     for row in table], dtype=float)
+    fig, ax = plt.subplots(figsize=(1.0 + 0.9 * len(col_labels),
+                                    0.8 + 0.7 * len(row_labels)))
+    image = ax.imshow(np.ma.masked_invalid(data), cmap=cmap)
+    fig.colorbar(image, ax=ax, shrink=0.8)
+    ax.set_xticks(range(len(col_labels)))
+    ax.set_xticklabels(col_labels)
+    ax.set_yticks(range(len(row_labels)))
+    ax.set_yticklabels(row_labels)
+    finite = data[~np.isnan(data)]
+    threshold = finite.max() * 0.6 if finite.size else 0
+    for i, row in enumerate(table):
+        for j, value in enumerate(row):
+            if value is None:
+                continue
+            text = (annotations[i][j] if annotations
+                    else f"{value:,.0f}")
+            ax.text(j, i, text, ha="center", va="center", fontsize=8,
+                    color="white" if value > threshold else "black")
+    ax.set_title(title)
     fig.tight_layout()
     fig.savefig(save_path, dpi=150)
     plt.close(fig)
