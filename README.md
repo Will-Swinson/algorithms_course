@@ -40,16 +40,31 @@ src/dp/knapsack.py            0/1 knapsack: recursive, memoized, tabulated,
                               trace_solution() item recovery (Week 5)
 src/dp/lcs.py                 Longest common subsequence: recursive,
                               memoized, tabulated + reconstruction (Week 5)
+src/dp_advanced/space_optimized_knapsack.py
+                              O(W)-space 0/1 knapsack: two-row and in-place
+                              1D versions, bitset item recovery (Week 6)
+src/dp_advanced/matrix_chain_multiplication.py
+                              Interval DP: recursive, memoized, bottom-up,
+                              optimal parenthesization (Week 6)
+src/dp_advanced/floyd_warshall.py
+                              All-pairs shortest paths, negative edges,
+                              negative-cycle detection (Week 6)
+src/dp_advanced/bitmask_traveling_salesman.py
+                              Held-Karp bitmask DP vs brute-force TSP (Week 6)
 src/utils/benchmark.py        Reusable benchmarking framework
 src/utils/graph_generator.py  Seeded random graph generators (Week 4)
 src/utils/timer.py            Call/recursion-depth counter, timing, and
                               tracemalloc memory helpers (Week 5)
+src/utils/matrix_utils.py     Matrix chains, counted matrix multiplication,
+                              graph -> weight matrix, city distances (Week 6)
+src/utils/bitmask_utils.py    Bit-manipulation helpers for set states (Week 6)
 src/utils/visualization.py    networkx traversal-order drawings (Week 4),
-                              recursive-vs-DP comparison plots (Week 5)
+                              recursive-vs-DP comparison plots (Week 5),
+                              metric grids and DP-table heatmaps (Week 6)
 tests/                        Pytest test suite
 benchmarks/                   Benchmark runners + raw results (CSV, PNG)
-analysis/                     Weekly technical reports (Weeks 2-5)
-examples/                     Runnable demos (week2_demo.py .. week5_demo.py)
+analysis/                     Weekly technical reports (Weeks 2-6)
+examples/                     Runnable demos (week2_demo.py .. week6_demo.py)
 docs/performance_analysis.md  Week 1 performance report with charts
 docs/images/                  Week 1 benchmark visualizations
 ```
@@ -119,6 +134,21 @@ calls, recursion depth, and peak memory. Writes
 `benchmarks/results/`. Most of the runtime is naive `fib(45)` alone
 (~80 s, 3.7 billion calls).
 
+Week 6 (advanced DP: space optimization, interval DP, Floyd-Warshall,
+bitmask TSP):
+
+```bash
+python benchmarks/week6_dp_advanced_benchmark.py          # ~8 min
+python benchmarks/week6_dp_advanced_benchmark.py --quick  # skips slowest cases
+```
+
+Writes `knapsack_space_comparison.png`, `mcm_performance.png`,
+`mcm_dp_table.png`, `floyd_warshall_scaling.png`,
+`tsp_bitmask_runtime.png`, and `comparison_table.csv` to
+`benchmarks/results/`. The CSV shares its name with Week 4's
+(as the assignment specifies), so it now holds the Week 6 data; Week
+4's version remains in git history.
+
 ## Demos
 
 ```bash
@@ -126,6 +156,7 @@ python examples/week2_demo.py   # the five sorting algorithms
 python examples/week3_demo.py   # priority queue, AVL balance, hashing
 python examples/week4_demo.py   # graph representations, BFS/DFS, Dijkstra
 python examples/week5_demo.py   # DP: call explosion, project picking, DNA LCS
+python examples/week6_demo.py   # 1D knapsack, matrix chains, Floyd-Warshall, TSP
 ```
 
 ## Current Progress
@@ -143,6 +174,9 @@ python examples/week5_demo.py   # DP: call explosion, project picking, DNA LCS
 - [x] Week 5: Dynamic programming — Fibonacci, 0/1 knapsack, and LCS
       as naive recursion, memoization, and tabulation; call/depth/
       memory benchmarking, speedup visualizations, and technical report
+- [x] Week 6: Advanced DP — O(W)-space knapsack, matrix chain
+      multiplication (interval DP), Floyd-Warshall vs all-pairs
+      Dijkstra, bitmask TSP vs brute force, benchmarks, and report
 
 ## Author
 
