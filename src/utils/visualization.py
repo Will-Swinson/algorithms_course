@@ -13,6 +13,11 @@ time, calls, speedup, and peak memory against input size.
 plot_metric_panels() and plot_table_heatmap() (Week 6) are the
 general-purpose versions: any grid of line charts with optional
 dashed reference curves, and a DP table drawn as an annotated heatmap.
+
+plot_mixed_panels() (Week 7) extends the grid to the shapes that
+randomized algorithms need: histograms of repeated-trial results
+against their expected value, scatter plots of estimate vs truth, and
+shaded mean ± std bands on line charts.
 """
 from typing import Any, Dict, List, Optional, Sequence
 
@@ -229,45 +234,47 @@ def plot_metric_panels(panels: List[Dict[str, Any]], save_path: str,
     Points whose y is None or non-positive on a log axis are dropped,
     so partially measured series still plot.
     """
+    plot_mixed_panels([dict(p, kind="line") for p in panels], save_path,
+                      title, ncols)
+
+
+def plot_mixed_panels(panels: List[Dict[str, Any]], save_path: str,
+                      title: str, ncols: int = 2) -> None:
+    """
+    Grid of panels of different kinds, chosen by panel["kind"]:
+
+    "line" (default) — as plot_metric_panels, plus optional
+        "bands": {label: (xs, lows, highs)}   shaded ranges, e.g. mean ± std
+
+    "hist" — distributions of repeated trials:
+        "samples": {label: [values]}           overlaid histograms
+        "vlines": {label: x}                   dashed markers (expected value)
+        "bins": int                            optional, default 30
+
+    "scatter" — estimate vs truth:
+        "points": {label: (xs, ys)}            unconnected markers
+        "refs": {label: (xs, ys)}              dashed guides (e.g. y = x)
+
+    All kinds take "title", "xlabel", "ylabel", optional "colors",
+    "logx", "logy".
+    """
     nrows = (len(panels) + ncols - 1) // ncols
     fig, axes = plt.subplots(nrows, ncols, figsize=(6.5 * ncols,
                                                      4.5 * nrows),
                              squeeze=False)
+    draw = {"line": _draw_line_panel, "hist": _draw_hist_panel,
+            "scatter": _draw_scatter_panel}
     for ax, panel in zip(axes.flat, panels):
-        logy = panel.get("logy", False)
-        colors = panel.get("colors", {})
-
-        def clean(xs, ys):
-            return [(x, y) for x, y in zip(xs, ys)
-                    if y is not None and (y > 0 or not logy)]
-
-        for label, (xs, ys) in panel["series"].items():
-            pts = clean(xs, ys)
-            if pts:
-                ax.plot([p[0] for p in pts], [p[1] for p in pts],
-                        marker="o", label=label, color=colors.get(label))
-        for label, (xs, ys) in panel.get("refs", {}).items():
-            pts = clean(xs, ys)
-            if pts:
-                ax.plot([p[0] for p in pts], [p[1] for p in pts],
-                        linestyle="--", color=colors.get(label, "gray"),
-                        alpha=0.7, label=label)
-        if panel.get("logx"):
-            ax.set_xscale("log")
-            # label the measured sizes rather than sparse powers of 10
-            xs_all = sorted({x for xs, _ in panel["series"].values()
-                             for x in xs})
-            if 0 < len(xs_all) <= 12:
-                ax.set_xticks(xs_all)
-            ax.xaxis.set_major_formatter(ScalarFormatter())
-            ax.xaxis.set_minor_formatter(NullFormatter())
-        if logy:
-            ax.set_yscale("log")
+        kind = panel.get("kind", "line")
+        if kind not in draw:
+            raise ValueError(f"unknown panel kind {kind!r}")
+        draw[kind](ax, panel)
         ax.set_title(panel["title"])
         ax.set_xlabel(panel["xlabel"])
         ax.set_ylabel(panel["ylabel"])
         ax.grid(True, which="both", alpha=0.3)
-        if ax.get_lines():
+        handles, _ = ax.get_legend_handles_labels()
+        if handles:
             ax.legend(fontsize=9)
     for ax in list(axes.flat)[len(panels):]:
         ax.axis("off")
@@ -276,6 +283,79 @@ def plot_metric_panels(panels: List[Dict[str, Any]], save_path: str,
     fig.tight_layout()
     fig.savefig(save_path, dpi=150)
     plt.close(fig)
+
+
+def _keep(xs, ys, logy: bool):
+    """Drop points with y None, or y <= 0 on a log axis."""
+    return [(x, y) for x, y in zip(xs, ys)
+            if y is not None and (y > 0 or not logy)]
+
+
+def _draw_refs(ax, panel: Dict[str, Any]) -> None:
+    colors = panel.get("colors", {})
+    for label, (xs, ys) in panel.get("refs", {}).items():
+        pts = _keep(xs, ys, panel.get("logy", False))
+        if pts:
+            ax.plot([p[0] for p in pts], [p[1] for p in pts],
+                    linestyle="--", color=colors.get(label, "gray"),
+                    alpha=0.7, label=label)
+
+
+def _set_scales(ax, panel: Dict[str, Any], xs_all: Sequence[float]) -> None:
+    if panel.get("logx"):
+        ax.set_xscale("log")
+        # label the measured sizes rather than sparse powers of 10
+        xs_all = sorted(set(xs_all))
+        if 0 < len(xs_all) <= 12:
+            ax.set_xticks(xs_all)
+        ax.xaxis.set_major_formatter(ScalarFormatter())
+        ax.xaxis.set_minor_formatter(NullFormatter())
+    if panel.get("logy"):
+        ax.set_yscale("log")
+
+
+def _draw_line_panel(ax, panel: Dict[str, Any]) -> None:
+    logy = panel.get("logy", False)
+    colors = panel.get("colors", {})
+    for label, (xs, ys) in panel["series"].items():
+        pts = _keep(xs, ys, logy)
+        if pts:
+            ax.plot([p[0] for p in pts], [p[1] for p in pts],
+                    marker="o", label=label, color=colors.get(label))
+    for label, (xs, lows, highs) in panel.get("bands", {}).items():
+        pts = [(x, lo, hi) for x, lo, hi in zip(xs, lows, highs)
+               if lo is not None and hi is not None
+               and (lo > 0 or not logy)]
+        if pts:
+            ax.fill_between([p[0] for p in pts], [p[1] for p in pts],
+                            [p[2] for p in pts], alpha=0.2,
+                            color=colors.get(label), label=label)
+    _draw_refs(ax, panel)
+    _set_scales(ax, panel, [x for xs, _ in panel["series"].values()
+                            for x in xs])
+
+
+def _draw_hist_panel(ax, panel: Dict[str, Any]) -> None:
+    colors = panel.get("colors", {})
+    for label, values in panel["samples"].items():
+        if values:
+            ax.hist(values, bins=panel.get("bins", 30), alpha=0.55,
+                    label=label, color=colors.get(label))
+    for label, x in panel.get("vlines", {}).items():
+        ax.axvline(x, linestyle="--", color=colors.get(label, "black"),
+                   label=label)
+    _set_scales(ax, panel, [])
+
+
+def _draw_scatter_panel(ax, panel: Dict[str, Any]) -> None:
+    colors = panel.get("colors", {})
+    for label, (xs, ys) in panel["points"].items():
+        if xs:
+            ax.scatter(xs, ys, s=18, alpha=0.7, label=label,
+                       color=colors.get(label))
+    _draw_refs(ax, panel)
+    _set_scales(ax, panel, [x for xs, _ in panel["points"].values()
+                            for x in xs])
 
 
 def plot_table_heatmap(table: List[List[Optional[float]]], save_path: str,
