@@ -51,6 +51,21 @@ src/dp_advanced/floyd_warshall.py
                               negative-cycle detection (Week 6)
 src/dp_advanced/bitmask_traveling_salesman.py
                               Held-Karp bitmask DP vs brute-force TSP (Week 6)
+src/randomized/randomized_quicksort.py
+                              Random vs first-element pivot QuickSort with
+                              comparison/depth counters (Week 7)
+src/randomized/randomized_selection.py
+                              QuickSelect, median-of-medians, sort baseline
+                              (Week 7)
+src/randomized/montecarlo_primality.py
+                              Fermat and Miller-Rabin tests, trial division,
+                              exact liar fractions (Week 7)
+src/randomized/bloom_filter.py
+                              Bloom filter: salted double hashing, optimal
+                              sizing, FP-rate estimates (Week 7)
+src/randomized/minhash_similarity.py
+                              MinHash signatures, Jaccard, text shingles
+                              (Week 7)
 src/utils/benchmark.py        Reusable benchmarking framework
 src/utils/graph_generator.py  Seeded random graph generators (Week 4)
 src/utils/timer.py            Call/recursion-depth counter, timing, and
@@ -58,13 +73,19 @@ src/utils/timer.py            Call/recursion-depth counter, timing, and
 src/utils/matrix_utils.py     Matrix chains, counted matrix multiplication,
                               graph -> weight matrix, city distances (Week 6)
 src/utils/bitmask_utils.py    Bit-manipulation helpers for set states (Week 6)
+src/utils/random_utils.py     Seeded arrays, strings, and Jaccard-controlled
+                              set pairs (Week 7)
+src/utils/probability_analysis.py
+                              Expected comparisons, error bounds, FP rates,
+                              mean/variance, Wilson intervals (Week 7)
 src/utils/visualization.py    networkx traversal-order drawings (Week 4),
                               recursive-vs-DP comparison plots (Week 5),
-                              metric grids and DP-table heatmaps (Week 6)
+                              metric grids and DP-table heatmaps (Week 6),
+                              histogram/scatter/band panels (Week 7)
 tests/                        Pytest test suite
 benchmarks/                   Benchmark runners + raw results (CSV, PNG)
-analysis/                     Weekly technical reports (Weeks 2-6)
-examples/                     Runnable demos (week2_demo.py .. week6_demo.py)
+analysis/                     Weekly technical reports (Weeks 2-7)
+examples/                     Runnable demos (week2_demo.py .. week7_demo.py)
 docs/performance_analysis.md  Week 1 performance report with charts
 docs/images/                  Week 1 benchmark visualizations
 ```
@@ -149,6 +170,22 @@ Writes `knapsack_space_comparison.png`, `mcm_performance.png`,
 (as the assignment specifies), so it now holds the Week 6 data; Week
 4's version remains in git history.
 
+Week 7 (randomized algorithms vs deterministic counterparts):
+
+```bash
+python benchmarks/week7_randomized_benchmark.py          # ~1 min
+python benchmarks/week7_randomized_benchmark.py --quick  # ~20 s
+```
+
+Runs every randomized algorithm many times with fresh seeds on a fixed
+input, recording mean/variance of runtime, comparison counts against
+their exact expected values, Fermat/Miller-Rabin error rates, Bloom
+filter false-positive rates, and MinHash estimation error. Writes
+`quicksort_comparison.png`, `selection_runtime.png`,
+`primality_accuracy.png`, `bloom_filter_fp_rate.png`,
+`minhash_similarity_plot.png`, and `summary_table.csv` to
+`benchmarks/results/`.
+
 ## Demos
 
 ```bash
@@ -157,6 +194,7 @@ python examples/week3_demo.py   # priority queue, AVL balance, hashing
 python examples/week4_demo.py   # graph representations, BFS/DFS, Dijkstra
 python examples/week5_demo.py   # DP: call explosion, project picking, DNA LCS
 python examples/week6_demo.py   # 1D knapsack, matrix chains, Floyd-Warshall, TSP
+python examples/week7_demo.py   # random pivots, Carmichael numbers, Bloom, MinHash
 ```
 
 ## Current Progress
@@ -177,6 +215,10 @@ python examples/week6_demo.py   # 1D knapsack, matrix chains, Floyd-Warshall, TS
 - [x] Week 6: Advanced DP — O(W)-space knapsack, matrix chain
       multiplication (interval DP), Floyd-Warshall vs all-pairs
       Dijkstra, bitmask TSP vs brute force, benchmarks, and report
+- [x] Week 7: Randomized algorithms — randomized QuickSort and
+      QuickSelect (Las Vegas), Fermat/Miller-Rabin primality, Bloom
+      filters, and MinHash (Monte Carlo); error-rate and variance
+      benchmarks against theory, and technical report
 
 ## Author
 
