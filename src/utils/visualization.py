@@ -18,8 +18,13 @@ plot_mixed_panels() (Week 7) extends the grid to the shapes that
 randomized algorithms need: histograms of repeated-trial results
 against their expected value, scatter plots of estimate vs truth, and
 shaded mean ± std bands on line charts.
+
+draw_highlighted_graph() (Week 8) draws an edge-list graph at fixed
+positions with a chosen vertex set highlighted — used to show the
+3-SAT → Vertex Cover gadget graph and the cover that encodes a
+satisfying assignment.
 """
-from typing import Any, Dict, List, Optional, Sequence
+from typing import Any, Dict, Hashable, List, Optional, Sequence, Tuple
 
 import matplotlib
 matplotlib.use("Agg")  # headless: write PNGs, never open a window
@@ -256,7 +261,9 @@ def plot_mixed_panels(panels: List[Dict[str, Any]], save_path: str,
         "refs": {label: (xs, ys)}              dashed guides (e.g. y = x)
 
     All kinds take "title", "xlabel", "ylabel", optional "colors",
-    "logx", "logy".
+    "logx", "logy". A log x-axis is ticked at the measured x values
+    unless "measured_ticks": False (use that when x is a measured
+    quantity such as time, not a chosen input size).
     """
     nrows = (len(panels) + ncols - 1) // ncols
     fig, axes = plt.subplots(nrows, ncols, figsize=(6.5 * ncols,
@@ -280,7 +287,8 @@ def plot_mixed_panels(panels: List[Dict[str, Any]], save_path: str,
         ax.axis("off")
 
     fig.suptitle(title, fontsize=14, fontweight="bold")
-    fig.tight_layout()
+    # reserve ~0.45 in at the top so the suptitle clears the panel titles
+    fig.tight_layout(rect=(0, 0, 1, 1 - 0.45 / (4.5 * nrows)))
     fig.savefig(save_path, dpi=150)
     plt.close(fig)
 
@@ -306,7 +314,7 @@ def _set_scales(ax, panel: Dict[str, Any], xs_all: Sequence[float]) -> None:
         ax.set_xscale("log")
         # label the measured sizes rather than sparse powers of 10
         xs_all = sorted(set(xs_all))
-        if 0 < len(xs_all) <= 12:
+        if 0 < len(xs_all) <= 12 and panel.get("measured_ticks", True):
             ax.set_xticks(xs_all)
         ax.xaxis.set_major_formatter(ScalarFormatter())
         ax.xaxis.set_minor_formatter(NullFormatter())
@@ -393,4 +401,49 @@ def plot_table_heatmap(table: List[List[Optional[float]]], save_path: str,
     ax.set_title(title)
     fig.tight_layout()
     fig.savefig(save_path, dpi=150)
+    plt.close(fig)
+
+
+# ---------------------------------------------------------------------------
+# Week 8: reduction gadget graphs
+# ---------------------------------------------------------------------------
+
+def draw_highlighted_graph(edges: Sequence[Tuple[Hashable, Hashable]],
+                           positions: Dict[Hashable, Tuple[float, float]],
+                           highlighted: Sequence[Hashable], save_path: str,
+                           title: str, caption: str = "") -> None:
+    """
+    Draw an undirected edge-list graph at fixed (x, y) positions.
+
+    Vertices in `highlighted` are filled orange, the rest light blue.
+    Edges with at least one highlighted endpoint are drawn solid
+    (covered); edges with none are drawn red and dashed, so an invalid
+    vertex cover is visible at a glance.
+    """
+    g = nx.Graph()
+    g.add_nodes_from(positions)
+    g.add_edges_from(edges)
+    chosen = set(highlighted)
+    colors = ["#f4a261" if v in chosen else "#cfe2f3" for v in g.nodes]
+    covered = [e for e in g.edges if e[0] in chosen or e[1] in chosen]
+    uncovered = [e for e in g.edges if e not in covered]
+
+    width = max(8.0, 1.1 * (max(x for x, _ in positions.values())
+                             - min(x for x, _ in positions.values()) + 2))
+    fig, ax = plt.subplots(figsize=(min(width, 18), 6.5))
+    nx.draw_networkx_edges(g, positions, edgelist=covered, ax=ax,
+                           edge_color="gray", width=1.4)
+    nx.draw_networkx_edges(g, positions, edgelist=uncovered, ax=ax,
+                           edge_color="red", style="dashed", width=1.6)
+    nx.draw_networkx_nodes(g, positions, node_color=colors, ax=ax,
+                           node_size=900, edgecolors="black",
+                           linewidths=0.8)
+    nx.draw_networkx_labels(g, positions, font_size=9, ax=ax)
+    ax.set_title(title, fontsize=13, fontweight="bold")
+    if caption:
+        ax.text(0.5, -0.04, caption, transform=ax.transAxes, ha="center",
+                va="top", fontsize=10, wrap=True)
+    ax.axis("off")
+    fig.tight_layout()
+    fig.savefig(save_path, dpi=150, bbox_inches="tight")
     plt.close(fig)
