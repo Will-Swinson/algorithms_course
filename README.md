@@ -66,6 +66,23 @@ src/randomized/bloom_filter.py
 src/randomized/minhash_similarity.py
                               MinHash signatures, Jaccard, text shingles
                               (Week 7)
+src/complexity/reduction_demo.py
+                              Polynomial-time reductions with logged
+                              steps: 3-SAT -> Vertex Cover -> Independent
+                              Set -> Clique, 3-SAT -> Subset Sum;
+                              verifiers, validation, P/NP catalog (Week 8)
+src/complexity/satisfiability_solver.py
+                              SAT: brute force, backtracking/DPLL,
+                              linear-time 2-SAT, WalkSAT (Week 8)
+src/complexity/subset_sum_backtracking.py
+                              Subset Sum: backtracking, bitset DP, greedy
+                              1/2-approximation (Week 8)
+src/complexity/vertex_cover_approx.py
+                              Vertex Cover: matching 2-approximation,
+                              max-degree greedy, branch and bound (Week 8)
+src/complexity/traveling_salesman_approx.py
+                              TSP: nearest neighbor, MST double-tree,
+                              2-opt, MST lower bound (Week 8)
 src/utils/benchmark.py        Reusable benchmarking framework
 src/utils/graph_generator.py  Seeded random graph generators (Week 4)
 src/utils/timer.py            Call/recursion-depth counter, timing, and
@@ -78,14 +95,17 @@ src/utils/random_utils.py     Seeded arrays, strings, and Jaccard-controlled
 src/utils/probability_analysis.py
                               Expected comparisons, error bounds, FP rates,
                               mean/variance, Wilson intervals (Week 7)
+src/utils/graph_utils.py      Edge-list graphs: random G(n,p), K(a,b),
+                              complements, Week 4 Graph conversion (Week 8)
 src/utils/visualization.py    networkx traversal-order drawings (Week 4),
                               recursive-vs-DP comparison plots (Week 5),
                               metric grids and DP-table heatmaps (Week 6),
-                              histogram/scatter/band panels (Week 7)
+                              histogram/scatter/band panels (Week 7),
+                              highlighted gadget graphs (Week 8)
 tests/                        Pytest test suite
 benchmarks/                   Benchmark runners + raw results (CSV, PNG)
-analysis/                     Weekly technical reports (Weeks 2-7)
-examples/                     Runnable demos (week2_demo.py .. week7_demo.py)
+analysis/                     Weekly technical reports (Weeks 2-8)
+examples/                     Runnable demos (week2_demo.py .. week8_demo.py)
 docs/performance_analysis.md  Week 1 performance report with charts
 docs/images/                  Week 1 benchmark visualizations
 ```
@@ -166,9 +186,9 @@ python benchmarks/week6_dp_advanced_benchmark.py --quick  # skips slowest cases
 Writes `knapsack_space_comparison.png`, `mcm_performance.png`,
 `mcm_dp_table.png`, `floyd_warshall_scaling.png`,
 `tsp_bitmask_runtime.png`, and `comparison_table.csv` to
-`benchmarks/results/`. The CSV shares its name with Week 4's
-(as the assignment specifies), so it now holds the Week 6 data; Week
-4's version remains in git history.
+`benchmarks/results/`. The CSV shares its name with earlier weeks'
+(as the assignment specifies); each run overwrites it, and earlier
+versions remain in git history.
 
 Week 7 (randomized algorithms vs deterministic counterparts):
 
@@ -186,6 +206,25 @@ filter false-positive rates, and MinHash estimation error. Writes
 `minhash_similarity_plot.png`, and `summary_table.csv` to
 `benchmarks/results/`.
 
+Week 8 (complexity: exact exponential solvers vs polynomial heuristics
+and approximations):
+
+```bash
+python benchmarks/week8_complexity_benchmark.py          # ~40 s
+python benchmarks/week8_complexity_benchmark.py --quick  # ~10 s
+```
+
+Measures exponential growth of backtracking Subset Sum, brute-force/
+DPLL SAT, branch-and-bound Vertex Cover, and brute-force/Held-Karp TSP
+against greedy, WalkSAT, 2-approximation, nearest-neighbor, MST, and
+2-opt heuristics; approximation ratios against exact optima; and
+validates every reduction on 300 random formulas. Writes
+`runtime_growth.png`, `approximation_quality.png`,
+`tradeoff_curves.png`, `reduction_3sat_vertex_cover.png`, and
+`comparison_table.csv` to `benchmarks/results/`. Weeks 2-4 and 6 use
+the same CSV name (as each assignment specifies), so it now holds the
+Week 8 data; earlier versions remain in git history.
+
 ## Demos
 
 ```bash
@@ -195,6 +234,7 @@ python examples/week4_demo.py   # graph representations, BFS/DFS, Dijkstra
 python examples/week5_demo.py   # DP: call explosion, project picking, DNA LCS
 python examples/week6_demo.py   # 1D knapsack, matrix chains, Floyd-Warshall, TSP
 python examples/week7_demo.py   # random pivots, Carmichael numbers, Bloom, MinHash
+python examples/week8_demo.py   # P vs NP catalog, reductions, blow-up, approximations
 ```
 
 ## Current Progress
@@ -219,6 +259,11 @@ python examples/week7_demo.py   # random pivots, Carmichael numbers, Bloom, MinH
       QuickSelect (Las Vegas), Fermat/Miller-Rabin primality, Bloom
       filters, and MinHash (Monte Carlo); error-rate and variance
       benchmarks against theory, and technical report
+- [x] Week 8: Computational complexity — logged polynomial-time
+      reductions (3-SAT -> Vertex Cover/Clique/Subset Sum) validated
+      against exact solvers, backtracking Subset Sum and DPLL SAT vs
+      greedy/WalkSAT, Vertex Cover and TSP approximations, runtime and
+      approximation-ratio benchmarks, and technical report
 
 ## Author
 
