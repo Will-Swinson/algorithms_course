@@ -83,6 +83,21 @@ src/complexity/vertex_cover_approx.py
 src/complexity/traveling_salesman_approx.py
                               TSP: nearest neighbor, MST double-tree,
                               2-opt, MST lower bound (Week 8)
+src/approximation/vertex_cover_2approx.py
+                              Vertex Cover: greedy edge picking with its
+                              matching certificate, LP rounding (Week 9)
+src/approximation/set_cover_lpround.py
+                              Set Cover: LP relaxation, deterministic and
+                              randomized rounding, greedy, exact (Week 9)
+src/approximation/facility_location_greedy.py
+                              Facility location: star greedy, local search,
+                              exact enumeration (Week 9)
+src/approximation/tsp_metric_approx.py
+                              Metric TSP: MST doubling, Christofides,
+                              Euler circuits (Week 9)
+src/approximation/maxcut_randomized.py
+                              Max-Cut: random cut, derandomized cut, local
+                              search, exact enumeration (Week 9)
 src/utils/benchmark.py        Reusable benchmarking framework
 src/utils/graph_generator.py  Seeded random graph generators (Week 4)
 src/utils/timer.py            Call/recursion-depth counter, timing, and
@@ -96,16 +111,19 @@ src/utils/probability_analysis.py
                               Expected comparisons, error bounds, FP rates,
                               mean/variance, Wilson intervals (Week 7)
 src/utils/graph_utils.py      Edge-list graphs: random G(n,p), K(a,b),
-                              complements, Week 4 Graph conversion (Week 8)
+                              complements, Week 4 Graph conversion (Week 8),
+                              weighted edges (Week 9)
+src/utils/lp_solver.py        Two-phase simplex LP solver on numpy (Week 9)
 src/utils/visualization.py    networkx traversal-order drawings (Week 4),
                               recursive-vs-DP comparison plots (Week 5),
                               metric grids and DP-table heatmaps (Week 6),
                               histogram/scatter/band panels (Week 7),
-                              highlighted gadget graphs (Week 8)
+                              highlighted gadget graphs (Week 8),
+                              TSP tour drawings (Week 9)
 tests/                        Pytest test suite
 benchmarks/                   Benchmark runners + raw results (CSV, PNG)
-analysis/                     Weekly technical reports (Weeks 2-8)
-examples/                     Runnable demos (week2_demo.py .. week8_demo.py)
+analysis/                     Weekly technical reports (Weeks 2-9)
+examples/                     Runnable demos (week2_demo.py .. week9_demo.py)
 docs/performance_analysis.md  Week 1 performance report with charts
 docs/images/                  Week 1 benchmark visualizations
 ```
@@ -222,8 +240,26 @@ validates every reduction on 300 random formulas. Writes
 `runtime_growth.png`, `approximation_quality.png`,
 `tradeoff_curves.png`, `reduction_3sat_vertex_cover.png`, and
 `comparison_table.csv` to `benchmarks/results/`. Weeks 2-4 and 6 use
-the same CSV name (as each assignment specifies), so it now holds the
-Week 8 data; earlier versions remain in git history.
+the same CSV name (as each assignment specifies); each run overwrites
+it, and earlier versions remain in git history.
+
+Week 9 (approximation algorithms vs exact optima and their guarantees):
+
+```bash
+python benchmarks/week9_approx_benchmark.py          # ~1 min
+python benchmarks/week9_approx_benchmark.py --quick  # ~10 s
+```
+
+Compares Vertex Cover (edge picking, LP rounding), Set Cover (greedy,
+deterministic and randomized LP rounding), facility location (greedy,
+local search), metric TSP (MST doubling, Christofides), and Max-Cut
+(random, derandomized, local search) against exact solvers on small
+instances and against LP/MST/total-weight bounds on large ones, with
+30-1,000 randomized trials for means and variances. Writes
+`approx_ratios.png`, `cost_vs_optimal.png`,
+`randomized_maxcut_results.png`, `set_cover_rounding.png`,
+`approx_runtime.png`, `tsp_tours.png`, and `comparison_table.csv` (now
+holding the Week 9 data) to `benchmarks/results/`.
 
 ## Demos
 
@@ -235,6 +271,7 @@ python examples/week5_demo.py   # DP: call explosion, project picking, DNA LCS
 python examples/week6_demo.py   # 1D knapsack, matrix chains, Floyd-Warshall, TSP
 python examples/week7_demo.py   # random pivots, Carmichael numbers, Bloom, MinHash
 python examples/week8_demo.py   # P vs NP catalog, reductions, blow-up, approximations
+python examples/week9_demo.py   # certified ratios, LP rounding, Christofides, Max-Cut
 ```
 
 ## Current Progress
@@ -264,6 +301,12 @@ python examples/week8_demo.py   # P vs NP catalog, reductions, blow-up, approxim
       against exact solvers, backtracking Subset Sum and DPLL SAT vs
       greedy/WalkSAT, Vertex Cover and TSP approximations, runtime and
       approximation-ratio benchmarks, and technical report
+- [x] Week 9: Approximation algorithms — Vertex Cover 2-approximation
+      with self-certifying matching, Set Cover LP relaxation (own
+      simplex solver) with deterministic and randomized rounding,
+      greedy and local-search facility location, MST doubling and
+      Christofides for metric TSP, randomized Max-Cut with
+      derandomization and local search; benchmarks and report
 
 ## Author
 
