@@ -23,6 +23,9 @@ draw_highlighted_graph() (Week 8) draws an edge-list graph at fixed
 positions with a chosen vertex set highlighted — used to show the
 3-SAT → Vertex Cover gadget graph and the cover that encodes a
 satisfying assignment.
+
+draw_tours() (Week 9) draws TSP tours over the same cities side by
+side, so approximate and optimal tours can be compared by eye.
 """
 from typing import Any, Dict, Hashable, List, Optional, Sequence, Tuple
 
@@ -446,4 +449,43 @@ def draw_highlighted_graph(edges: Sequence[Tuple[Hashable, Hashable]],
     ax.axis("off")
     fig.tight_layout()
     fig.savefig(save_path, dpi=150, bbox_inches="tight")
+    plt.close(fig)
+
+
+# ---------------------------------------------------------------------------
+# Week 9: TSP tours
+# ---------------------------------------------------------------------------
+
+def draw_tours(points: Sequence[Tuple[float, float]],
+               tours: Dict[str, Tuple[Sequence[int], float]],
+               save_path: str, title: str, ncols: int = 3) -> None:
+    """
+    One panel per tour: cities as dots, the tour as a closed path, and
+    the panel titled with its label and length. City 0 (the start) is
+    drawn larger.
+
+    Args:
+        points: (x, y) per city.
+        tours: label -> (tour [0, ..., 0], length).
+    """
+    nrows = (len(tours) + ncols - 1) // ncols
+    fig, axes = plt.subplots(nrows, ncols, figsize=(5 * ncols, 5 * nrows),
+                             squeeze=False)
+    xs = [p[0] for p in points]
+    ys = [p[1] for p in points]
+    for ax, (label, (tour, length)) in zip(axes.flat, tours.items()):
+        ax.plot([xs[i] for i in tour], [ys[i] for i in tour], "-",
+                color="#2a6f97", linewidth=1.4)
+        ax.scatter(xs, ys, s=18, color="#e76f51", zorder=3)
+        ax.scatter([xs[tour[0]]], [ys[tour[0]]], s=70, color="black",
+                   zorder=4)
+        ax.set_title(f"{label}\nlength {length:.1f}", fontsize=11)
+        ax.set_aspect("equal")
+        ax.set_xticks([])
+        ax.set_yticks([])
+    for ax in list(axes.flat)[len(tours):]:
+        ax.axis("off")
+    fig.suptitle(title, fontsize=14, fontweight="bold")
+    fig.tight_layout(rect=(0, 0, 1, 1 - 0.45 / (5 * nrows)))
+    fig.savefig(save_path, dpi=150)
     plt.close(fig)
