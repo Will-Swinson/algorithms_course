@@ -6,6 +6,8 @@ instead of the Week 4 Graph class: reductions build graphs out of
 gadgets, take complements, and hand them between problems, and a list
 of pairs is the simplest thing to build, print, and check.
 edges_from_graph() converts a Week 4 Graph when needed.
+
+Week 9 adds random_weighted_edges() for weighted Max-Cut.
 """
 import itertools
 import random
@@ -100,3 +102,13 @@ def complete_bipartite_edges(a: int, b: int) -> List[Tuple[int, int]]:
     """
     return [(u, a + v) for u in range(a) for v in range(b)]
 
+
+def random_weighted_edges(n: int, avg_degree: float = 4.0,
+                          weight_range: Tuple[int, int] = (1, 10),
+                          seed: Optional[int] = None
+                          ) -> List[Tuple[int, int, int]]:
+    """G(n, p) edges (as random_graph_edges) with integer weights drawn
+    uniformly from weight_range: [(u, v, w), ...]."""
+    rng = random.Random(None if seed is None else seed + 1)
+    return [(u, v, rng.randint(*weight_range))
+            for u, v in random_graph_edges(n, avg_degree, seed)]
