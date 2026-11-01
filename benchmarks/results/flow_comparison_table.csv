@@ -1,0 +1,156 @@
+experiment,family,method,n,arcs,parameter,instances,mean_time_s,std_time_s,flow_value,augmentations,pushes,relabels,peak_mem_mb,valid,note
+runtime,sparse,ek,1000,4056,avg_degree=4,3,0.0358157,0.0137215,1385,109.333,0,0,,True,
+runtime,sparse,scaling,1000,4056,avg_degree=4,3,0.0126151,0.00758517,1385,61.6667,0,0,,True,
+runtime,sparse,pr-fifo,1000,4056,avg_degree=4,3,0.00382867,0.00285696,1385,0,1458,749.333,,True,
+runtime,sparse,pr-highest,1000,4056,avg_degree=4,3,0.00462981,0.00387339,1385,0,1654.67,835.333,,True,
+runtime,sparse,mcf,1000,4056,avg_degree=4,3,0.178228,0.0470621,1385,170.667,0,0,,True,
+runtime,sparse,networkx,1000,4056,avg_degree=4,3,0.0142727,0.00554599,1385,,,,,True,
+runtime,sparse,ek,2000,8082,avg_degree=4,3,0.103469,0.00981605,2026.67,153,0,0,,True,
+runtime,sparse,scaling,2000,8082,avg_degree=4,3,0.0370446,0.013538,2026.67,83.3333,0,0,,True,
+runtime,sparse,pr-fifo,2000,8082,avg_degree=4,3,0.00838592,0.00335542,2026.67,0,2902.67,1507,,True,
+runtime,sparse,pr-highest,2000,8082,avg_degree=4,3,0.0121823,0.00743543,2026.67,0,4401,2456.33,,True,
+runtime,sparse,mcf,2000,8082,avg_degree=4,3,0.604221,0.0269537,2026.67,271.333,0,0,,True,
+runtime,sparse,networkx,2000,8082,avg_degree=4,3,0.0318799,0.0100671,2026.67,,,,,True,
+runtime,sparse,ek,5000,20134,avg_degree=4,3,0.438986,0.0687039,3001.33,262.667,0,0,,True,
+runtime,sparse,scaling,5000,20134,avg_degree=4,3,0.0923629,0.0341323,3001.33,143.667,0,0,,True,
+runtime,sparse,pr-fifo,5000,20134,avg_degree=4,3,0.0110833,0.00316945,3001.33,0,3534.33,1583.67,,True,
+runtime,sparse,pr-highest,5000,20134,avg_degree=4,3,0.0123888,0.00266371,3001.33,0,3495,1447.67,,True,
+runtime,sparse,mcf,5000,20134,avg_degree=4,3,2.73327,0.596269,3001.33,458.667,0,0,,True,
+runtime,sparse,networkx,5000,20134,avg_degree=4,3,0.0702839,0.00982023,3001.33,,,,,True,
+runtime,sparse,ek,10000,40194,avg_degree=4,3,1.45428,0.153408,4519.33,383.667,0,0,,True,
+runtime,sparse,scaling,10000,40194,avg_degree=4,3,0.456657,0.181632,4519.33,209,0,0,,True,
+runtime,sparse,pr-fifo,10000,40194,avg_degree=4,3,0.0473053,0.0258968,4519.33,0,15010.7,9282.67,,True,
+runtime,sparse,pr-highest,10000,40194,avg_degree=4,3,0.0786281,0.0482841,4519.33,0,19211,12295.7,,True,
+runtime,sparse,networkx,10000,40194,avg_degree=4,3,0.238843,0.095404,4519.33,,,,,True,
+runtime,sparse,ek,20000,80276,avg_degree=4,3,5.47577,0.406587,6659.33,631,0,0,,True,
+runtime,sparse,scaling,20000,80276,avg_degree=4,3,1.74204,0.255145,6659.33,323.333,0,0,,True,
+runtime,sparse,pr-fifo,20000,80276,avg_degree=4,3,0.118345,0.0416554,6659.33,0,32969.3,21559.7,,True,
+runtime,sparse,pr-highest,20000,80276,avg_degree=4,3,0.129634,0.0342186,6659.33,0,33244,20766.3,,True,
+runtime,sparse,networkx,20000,80276,avg_degree=4,3,0.508998,0.0290333,6659.33,,,,,True,
+runtime,sparse,pr-fifo,50000,200440,avg_degree=4,3,0.318607,0.2652,10159.7,0,57451.3,38316,,True,
+runtime,sparse,pr-highest,50000,200440,avg_degree=4,3,0.431785,0.429384,10159.7,0,64225.3,40001.7,,True,
+runtime,dense,ek,100,1928,p=0.2,3,0.00296742,0.000959121,866.333,41.3333,0,0,,True,
+runtime,dense,scaling,100,1928,p=0.2,3,0.0021195,0.000526599,866.333,28.6667,0,0,,True,
+runtime,dense,pr-fifo,100,1928,p=0.2,3,0.000891778,0.000361115,866.333,0,164.667,58.3333,,True,
+runtime,dense,pr-highest,100,1928,p=0.2,3,0.00112876,0.000486204,866.333,0,216,78.3333,,True,
+runtime,dense,mcf,100,1928,p=0.2,3,0.0187498,0.0091724,866.333,77.3333,0,0,,True,
+runtime,dense,networkx,100,1928,p=0.2,3,0.00358015,0.00102633,866.333,,,,,True,
+runtime,dense,ek,200,7902,p=0.2,3,0.0181609,0.00500488,1939,95.3333,0,0,,True,
+runtime,dense,scaling,200,7902,p=0.2,3,0.0112941,0.00578615,1939,69,0,0,,True,
+runtime,dense,pr-fifo,200,7902,p=0.2,3,0.00226351,0.00074008,1939,0,251,66.3333,,True,
+runtime,dense,pr-highest,200,7902,p=0.2,3,0.00252246,0.00101676,1939,0,317,82.6667,,True,
+runtime,dense,mcf,200,7902,p=0.2,3,0.228322,0.0220438,1939,278.333,0,0,,True,
+runtime,dense,networkx,200,7902,p=0.2,3,0.0109477,0.00111374,1939,,,,,True,
+runtime,dense,ek,400,31722,p=0.2,3,0.128235,0.0146139,3753.33,190,0,0,,True,
+runtime,dense,scaling,400,31722,p=0.2,3,0.104815,0.01637,3753.33,135.333,0,0,,True,
+runtime,dense,pr-fifo,400,31722,p=0.2,3,0.0109316,0.00140862,3753.33,0,749,198.333,,True,
+runtime,dense,pr-highest,400,31722,p=0.2,3,0.0118358,0.00295159,3753.33,0,810,227.333,,True,
+runtime,dense,mcf,400,31722,p=0.2,3,1.8601,0.306818,3753.33,611.667,0,0,,True,
+runtime,dense,networkx,400,31722,p=0.2,3,0.0436421,0.0027868,3753.33,,,,,True,
+runtime,dense,ek,800,127420,p=0.2,3,0.970295,0.140746,7331,365.333,0,0,,True,
+runtime,dense,scaling,800,127420,p=0.2,3,0.734306,0.115085,7331,252,0,0,,True,
+runtime,dense,pr-fifo,800,127420,p=0.2,3,0.0494576,0.00847486,7331,0,1275,282,,True,
+runtime,dense,pr-highest,800,127420,p=0.2,3,0.0522997,0.0018083,7331,0,1443,368.333,,True,
+runtime,dense,networkx,800,127420,p=0.2,3,0.244457,0.0203001,7331,,,,,True,
+runtime,dense,ek,1200,287364,p=0.2,3,2.73691,0.40619,12016.7,595.333,0,0,,True,
+runtime,dense,scaling,1200,287364,p=0.2,3,1.53174,0.649794,12016.7,418.667,0,0,,True,
+runtime,dense,pr-fifo,1200,287364,p=0.2,3,0.0882783,0.0223519,12016.7,0,1892.67,322.333,,True,
+runtime,dense,pr-highest,1200,287364,p=0.2,3,0.0958226,0.0246559,12016.7,0,1866.67,360,,True,
+runtime,grid,ek,1026,4992,32x32,3,0.434383,0.0316725,22947.3,1465.67,0,0,,True,
+runtime,grid,scaling,1026,4992,32x32,3,0.222622,0.0237027,22947.3,1025,0,0,,True,
+runtime,grid,pr-fifo,1026,4992,32x32,3,0.0155159,0.00209174,22947.3,0,9639.67,3492.33,,True,
+runtime,grid,pr-highest,1026,4992,32x32,3,0.0241971,0.0046667,22947.3,0,12680.7,5503.67,,True,
+runtime,grid,mcf,1026,4992,32x32,3,1.94597,0.105885,22947.3,1840.33,0,0,,True,
+runtime,grid,networkx,1026,4992,32x32,3,0.0639731,0.0361807,22947.3,,,,,True,
+runtime,grid,ek,2306,11328,48x48,3,2.05957,0.235944,51154,3293.67,0,0,,True,
+runtime,grid,scaling,2306,11328,48x48,3,0.969658,0.149508,51154,2284.33,0,0,,True,
+runtime,grid,pr-fifo,2306,11328,48x48,3,0.0405135,0.00399434,51154,0,26343.3,9758.67,,True,
+runtime,grid,pr-highest,2306,11328,48x48,3,0.0546034,0.00920445,51154,0,27783.3,12496.3,,True,
+runtime,grid,networkx,2306,11328,48x48,3,0.107293,0.0350908,51154,,,,,True,
+runtime,grid,ek,4098,20224,64x64,3,7.07748,0.14775,93344.7,6025.67,0,0,,True,
+runtime,grid,scaling,4098,20224,64x64,3,3.4975,0.23483,93344.7,4191,0,0,,True,
+runtime,grid,pr-fifo,4098,20224,64x64,3,0.0739405,0.00984844,93344.7,0,47668.7,17513,,True,
+runtime,grid,pr-highest,4098,20224,64x64,3,0.130409,0.0146408,93344.7,0,62432.3,29498.3,,True,
+runtime,grid,networkx,4098,20224,64x64,3,0.248334,0.0225116,93344.7,,,,,True,
+runtime,grid,pr-fifo,10002,49600,100x100,3,0.195467,0.0293552,227256,0,121597,45838,,True,
+runtime,grid,pr-highest,10002,49600,100x100,3,0.435372,0.0324887,227256,0,166114,82710.3,,True,
+runtime,grid,networkx,10002,49600,100x100,3,0.641416,0.0877412,227256,,,,,True,
+runtime,grid,pr-fifo,19883,98841,141x141,3,0.39399,0.0253399,454929,0,241912,89353.7,,True,
+runtime,grid,pr-highest,19883,98841,141x141,3,1.24333,0.135367,454929,0,381619,198101,,True,
+runtime,grid,pr-fifo,50178,249984,224x224,3,1.20935,0.0887784,1.15019e+06,0,649157,244186,,True,
+runtime,grid,pr-highest,50178,249984,224x224,3,5.62108,0.773771,1.15019e+06,0,1.13795e+06,607070,,True,
+memory,sparse,network,1000,4056,,,,,,,,,1.24229,True,building the FlowNetwork
+memory,sparse,ek,1000,4056,,,,,1513,,,,0.106205,True,peak during solve (tracemalloc)
+memory,sparse,scaling,1000,4056,,,,,1513,,,,0.136684,True,peak during solve (tracemalloc)
+memory,sparse,pr-fifo,1000,4056,,,,,1513,,,,0.478857,True,peak during solve (tracemalloc)
+memory,sparse,pr-highest,1000,4056,,,,,1513,,,,0.599923,True,peak during solve (tracemalloc)
+memory,sparse,mcf,1000,4056,,,,,1513,,,,0.115192,True,peak during solve (tracemalloc)
+memory,sparse,network,5000,20134,,,,,,,,,6.53246,True,building the FlowNetwork
+memory,sparse,ek,5000,20134,,,,,3254,,,,0.464241,True,peak during solve (tracemalloc)
+memory,sparse,scaling,5000,20134,,,,,3254,,,,0.626774,True,peak during solve (tracemalloc)
+memory,sparse,pr-fifo,5000,20134,,,,,3254,,,,2.09166,True,peak during solve (tracemalloc)
+memory,sparse,pr-highest,5000,20134,,,,,3254,,,,2.72051,True,peak during solve (tracemalloc)
+memory,sparse,mcf,5000,20134,,,,,3254,,,,0.722645,True,peak during solve (tracemalloc)
+memory,sparse,network,20000,80276,,,,,,,,,25.8985,True,building the FlowNetwork
+memory,sparse,ek,20000,80276,,,,,6722,,,,3.73923,True,peak during solve (tracemalloc)
+memory,sparse,scaling,20000,80276,,,,,6722,,,,4.41951,True,peak during solve (tracemalloc)
+memory,sparse,pr-fifo,20000,80276,,,,,6722,,,,10.1104,True,peak during solve (tracemalloc)
+memory,sparse,pr-highest,20000,80276,,,,,6722,,,,13.2876,True,peak during solve (tracemalloc)
+capacity_dist,sparse,ek,5000,,unit,3,0.0758596,0.00906429,,69.3333,,,,True,capacities 1..10000
+capacity_dist,sparse,scaling,5000,,unit,3,0.0722371,0.00948607,,69.3333,,,,True,capacities 1..10000
+capacity_dist,sparse,pr-fifo,5000,,unit,3,0.019509,0.00980826,,,5196,,,True,capacities 1..10000
+capacity_dist,sparse,ek,5000,,uniform,3,0.500618,0.0905104,,270.667,,,,True,capacities 1..10000
+capacity_dist,sparse,scaling,5000,,uniform,3,0.104444,0.0314065,,148.667,,,,True,capacities 1..10000
+capacity_dist,sparse,pr-fifo,5000,,uniform,3,0.0123437,0.00342739,,,3579.33,,,True,capacities 1..10000
+capacity_dist,sparse,ek,5000,,exponential,3,0.767782,0.0428978,,377.333,,,,True,capacities 1..10000
+capacity_dist,sparse,scaling,5000,,exponential,3,0.199373,0.0721241,,180.333,,,,True,capacities 1..10000
+capacity_dist,sparse,pr-fifo,5000,,exponential,3,0.0283013,0.0184277,,,9331,,,True,capacities 1..10000
+capacity_dist,sparse,ek,5000,,powerlaw,3,0.173856,0.020683,,131.667,,,,True,capacities 1..10000
+capacity_dist,sparse,scaling,5000,,powerlaw,3,0.0981109,0.0179312,,98.3333,,,,True,capacities 1..10000
+capacity_dist,sparse,pr-fifo,5000,,powerlaw,3,0.0158252,0.0105799,,,3887.67,,,True,capacities 1..10000
+convergence,sparse,pr-fifo,50000,200440,,,,,10560,,126393,92496,,True,"1 global relabels, 48988 gap-lifted nodes"
+convergence,sparse,pr-highest,50000,200440,,,,,10560,,148305,100125,,True,"2 global relabels, 8 gap-lifted nodes"
+convergence,grid,pr-fifo,19883,98841,,,,,455258,,229481,84414,,True,"4 global relabels, 667 gap-lifted nodes"
+convergence,grid,pr-highest,19883,98841,,,,,455258,,348519,176891,,True,"8 global relabels, 7864 gap-lifted nodes"
+ablation,sparse,pr-fifo,5000,,both heuristics,3,0.0111456,0.00320069,,,5118,,,True,
+ablation,sparse,pr-fifo,5000,,no gap,3,0.0128437,0.00542627,,,7795,,,True,
+ablation,sparse,pr-fifo,5000,,no global relabel,3,0.0416608,0.00406648,,,36532.7,,,True,
+ablation,sparse,pr-fifo,5000,,neither,3,0.0430124,0.00740117,,,41112,,,True,
+ablation,grid,pr-fifo,4098,,both heuristics,3,0.0775695,0.0171562,,,65181.7,,,True,
+ablation,grid,pr-fifo,4098,,no gap,3,0.0722359,0.00836868,,,65956,,,True,
+ablation,grid,pr-fifo,4098,,no global relabel,3,0.212649,0.0593762,,,230133,,,True,
+ablation,grid,pr-fifo,4098,,neither,3,10,0,,,,,,True,3 of 3 runs hit the 10 s cap
+matching,bipartite,ek,200,,avg_degree=3,3,0.00223374,4.0452e-05,94,,,,,True,
+matching,bipartite,pr-fifo,200,,avg_degree=3,3,0.00121381,0.000288249,94,,,,,True,
+matching,bipartite,hopcroft-karp,200,,avg_degree=3,3,0.000460722,0.00011594,94,,,,,True,networkx reference
+matching,bipartite,ek,2000,,avg_degree=3,3,0.212839,0.00955902,940.667,,,,,True,
+matching,bipartite,pr-fifo,2000,,avg_degree=3,3,0.0168174,0.000230708,940.667,,,,,True,
+matching,bipartite,hopcroft-karp,2000,,avg_degree=3,3,0.00843181,0.000450206,940.667,,,,,True,networkx reference
+matching,bipartite,ek,10000,,avg_degree=3,3,5.55028,0.268905,4663.33,,,,,True,
+matching,bipartite,pr-fifo,10000,,avg_degree=3,3,0.116534,0.0287751,4663.33,,,,,True,
+matching,bipartite,hopcroft-karp,10000,,avg_degree=3,3,0.0619234,0.00579048,4663.33,,,,,True,networkx reference
+matching,bipartite,pr-fifo,40000,,avg_degree=3,3,0.708653,0.00668636,18679.3,,,,,True,
+matching,bipartite,hopcroft-karp,40000,,avg_degree=3,3,0.624348,0.122121,18679.3,,,,,True,networkx reference
+segmentation_size,image,graph-cut,1026,,noise=0.3,3,0.0176191,0.00931139,0.82818,,,,,True,flow_value column holds mean IoU
+segmentation_size,image,graph-cut,4098,,noise=0.3,3,0.0515263,0.00475911,0.863476,,,,,True,flow_value column holds mean IoU
+segmentation_size,image,graph-cut,16386,,noise=0.3,3,0.219135,0.0202724,0.880743,,,,,True,flow_value column holds mean IoU
+segmentation_size,image,graph-cut,40002,,noise=0.3,3,0.61851,0.0850509,0.900606,,,,,True,flow_value column holds mean IoU
+segmentation_noise,image,graph-cut,4098,,noise=0.1,3,,,0.997353,,,,,True,flow_value column holds mean IoU
+segmentation_noise,image,threshold,4098,,noise=0.1,3,,,0.975263,,,,,True,flow_value column holds mean IoU
+segmentation_noise,image,graph-cut,4098,,noise=0.2,3,,,0.949728,,,,,True,flow_value column holds mean IoU
+segmentation_noise,image,threshold,4098,,noise=0.2,3,,,0.630555,,,,,True,flow_value column holds mean IoU
+segmentation_noise,image,graph-cut,4098,,noise=0.3,3,,,0.863476,,,,,True,flow_value column holds mean IoU
+segmentation_noise,image,threshold,4098,,noise=0.3,3,,,0.474308,,,,,True,flow_value column holds mean IoU
+segmentation_noise,image,graph-cut,4098,,noise=0.4,3,,,0.720886,,,,,True,flow_value column holds mean IoU
+segmentation_noise,image,threshold,4098,,noise=0.4,3,,,0.398675,,,,,True,flow_value column holds mean IoU
+segmentation_noise,image,graph-cut,4098,,noise=0.5,3,,,0.593832,,,,,True,flow_value column holds mean IoU
+segmentation_noise,image,threshold,4098,,noise=0.5,3,,,0.353847,,,,,True,flow_value column holds mean IoU
+segmentation_noise,image,graph-cut,4098,,noise=0.6,3,,,0.4962,,,,,True,flow_value column holds mean IoU
+segmentation_noise,image,threshold,4098,,noise=0.6,3,,,0.328082,,,,,True,flow_value column holds mean IoU
+scheduling,deadline,pr-fifo,30,,machines=1,20,0.000449702,,0,0.267148,,,,True,flow_value = fraction feasible; augmentations = mean fraction of work scheduled
+scheduling,deadline,pr-fifo,30,,machines=2,20,0.000438408,,0,0.524087,,,,True,flow_value = fraction feasible; augmentations = mean fraction of work scheduled
+scheduling,deadline,pr-fifo,30,,machines=3,20,0.000452637,,0,0.765789,,,,True,flow_value = fraction feasible; augmentations = mean fraction of work scheduled
+scheduling,deadline,pr-fifo,30,,machines=4,20,0.000406436,,0.35,0.949546,,,,True,flow_value = fraction feasible; augmentations = mean fraction of work scheduled
+scheduling,deadline,pr-fifo,30,,machines=5,20,0.000328381,,0.75,0.988794,,,,True,flow_value = fraction feasible; augmentations = mean fraction of work scheduled
+scheduling,deadline,pr-fifo,30,,machines=6,20,0.000302719,,0.95,0.998052,,,,True,flow_value = fraction feasible; augmentations = mean fraction of work scheduled
+scheduling,deadline,pr-fifo,30,,machines=8,20,0.000291388,,1,1,,,,True,flow_value = fraction feasible; augmentations = mean fraction of work scheduled
