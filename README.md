@@ -98,6 +98,23 @@ src/approximation/tsp_metric_approx.py
 src/approximation/maxcut_randomized.py
                               Max-Cut: random cut, derandomized cut, local
                               search, exact enumeration (Week 9)
+src/flow/core/network.py      FlowNetwork: residual graph in edge arrays,
+                              automatic twin edges, min cut (Week 10)
+src/flow/core/edmonds_karp.py Edmonds-Karp (BFS augmenting paths) and
+                              capacity scaling (Week 10)
+src/flow/core/push_relabel.py Push-relabel: FIFO and highest-label, gap
+                              and global-relabel heuristics (Week 10)
+src/flow/core/min_cost_flow.py
+                              Min-cost max-flow: successive shortest
+                              paths with Johnson potentials (Week 10)
+src/flow/applications/        Bipartite matching + assignment, graph-cut
+                              image segmentation, scheduling (deadlines,
+                              staffing, tournament elimination) (Week 10)
+src/flow/visualization/       Network/matching/segmentation/Gantt plots,
+                              EK and push-relabel animations (Week 10)
+src/flow/utils/               Generators, validators, DIMACS/edge-list/
+                              image readers (Week 10)
+src/flow/main.py              Flow solver CLI (Week 10)
 src/utils/benchmark.py        Reusable benchmarking framework
 src/utils/graph_generator.py  Seeded random graph generators (Week 4)
 src/utils/timer.py            Call/recursion-depth counter, timing, and
@@ -122,8 +139,10 @@ src/utils/visualization.py    networkx traversal-order drawings (Week 4),
                               TSP tour drawings (Week 9)
 tests/                        Pytest test suite
 benchmarks/                   Benchmark runners + raw results (CSV, PNG)
-analysis/                     Weekly technical reports (Weeks 2-9)
-examples/                     Runnable demos (week2_demo.py .. week9_demo.py)
+analysis/                     Weekly technical reports (Weeks 2-10)
+examples/                     Runnable demos (week2_demo.py .. week10_demo.py)
+examples/flow_inputs/         Sample inputs for the flow CLI (DIMACS,
+                              edge list, matching, image, schedules)
 docs/performance_analysis.md  Week 1 performance report with charts
 docs/images/                  Week 1 benchmark visualizations
 ```
@@ -261,6 +280,43 @@ instances and against LP/MST/total-weight bounds on large ones, with
 `approx_runtime.png`, `tsp_tours.png`, and `comparison_table.csv` (now
 holding the Week 9 data) to `benchmarks/results/`.
 
+Week 10 (network flow: max-flow, min-cost flow, applications):
+
+```bash
+python benchmarks/week10_flow_benchmark.py          # ~5 min
+python benchmarks/week10_flow_benchmark.py --quick  # ~45 s
+```
+
+Times Edmonds-Karp, capacity scaling, push-relabel (FIFO and
+highest-label), min-cost max-flow, and networkx's preflow_push on
+sparse (1k-50k nodes), dense (up to ~290k arcs) and segmentation-grid
+networks; measures peak memory, augmenting-path counts, push-relabel
+convergence and a gap/global-relabel ablation; benchmarks matching,
+segmentation and scheduling. Every flow is checked by the validators.
+Writes `flow_runtime.png`, `flow_memory.png`, `augmentations.png`,
+`pr_convergence.png`, `flow_applications.png`, example figures
+(`network_example.png`, `matching_example.png`,
+`segmentation_example.png`, `flow_storyboard.png`), the animations
+`ek_animation.gif` and `pr_animation.gif`, and
+`flow_comparison_table.csv` to `benchmarks/results/`.
+
+## Flow Solver CLI
+
+```bash
+python -m src.flow.main --ek -i examples/flow_inputs/clrs.max --validate
+python -m src.flow.main --mcf -i examples/flow_inputs/shipping.min
+python -m src.flow.main --pr --random 50000 --validate
+python -m src.flow.main --match examples/flow_inputs/matching.txt --plot match.png
+python -m src.flow.main --segment examples/flow_inputs/shapes.png --plot seg.png
+python -m src.flow.main --schedule examples/flow_inputs/jobs.json --plot gantt.png
+python -m src.flow.main --pr -i examples/flow_inputs/clrs.max --animate pr.gif
+```
+
+Solvers: `--ek`, `--pr` (`--variant fifo|highest`), `--mcf`,
+`--scaling`. Applications: `--match`, `--segment`, `--schedule`
+(job deadlines, job-machine hours, staffing, tournament elimination;
+JSON formats in `python -m src.flow.main --help`).
+
 ## Demos
 
 ```bash
@@ -272,6 +328,7 @@ python examples/week6_demo.py   # 1D knapsack, matrix chains, Floyd-Warshall, TS
 python examples/week7_demo.py   # random pivots, Carmichael numbers, Bloom, MinHash
 python examples/week8_demo.py   # P vs NP catalog, reductions, blow-up, approximations
 python examples/week9_demo.py   # certified ratios, LP rounding, Christofides, Max-Cut
+python examples/week10_demo.py  # max-flow solvers, min cut, matching, segmentation
 ```
 
 ## Current Progress
@@ -307,6 +364,11 @@ python examples/week9_demo.py   # certified ratios, LP rounding, Christofides, M
       greedy and local-search facility location, MST doubling and
       Christofides for metric TSP, randomized Max-Cut with
       derandomization and local search; benchmarks and report
+- [x] Week 10: Network flow — modular flow solver (residual-graph
+      network, Edmonds-Karp, capacity scaling, push-relabel FIFO and
+      highest-label, min-cost max-flow), matching, graph-cut
+      segmentation, scheduling, validators, animations, CLI,
+      benchmarks to 50k nodes, and technical report
 
 ## Author
 
