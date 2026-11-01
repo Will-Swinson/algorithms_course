@@ -1,0 +1,10 @@
+# applicant  job
+alice   backend
+alice   frontend
+bob     backend
+carol   frontend
+carol   data
+dave    data
+dave    devops
+erin    devops
+frank   backend
