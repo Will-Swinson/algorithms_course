@@ -115,6 +115,26 @@ src/flow/visualization/       Network/matching/segmentation/Gantt plots,
 src/flow/utils/               Generators, validators, DIMACS/edge-list/
                               image readers (Week 10)
 src/flow/main.py              Flow solver CLI (Week 10)
+src/strings/core/kmp.py       KMP: prefix function, linear-time search,
+                              fallback trace; brute-force baseline (Week 11)
+src/strings/core/rabin_karp.py
+                              Rabin-Karp: verified / Monte Carlo search,
+                              multi-pattern batches (Week 11)
+src/strings/core/suffix_array.py
+                              Suffix array (numpy prefix doubling), Kasai
+                              LCP, O(m log n) search, LCS (Week 11)
+src/strings/core/suffix_tree.py
+                              Ukkonen suffix tree with active-point trace,
+                              Graphviz DOT export (Week 11)
+src/strings/core/search_engine.py
+                              StringSearchEngine: one API over all four,
+                              timing stats, method recommendation (Week 11)
+src/strings/applications/     Plagiarism detection, DNA search (FASTA,
+                              mutations), top-k autocomplete (Week 11)
+src/strings/visualization/    SA/LCP plots, KMP traces, suffix tree and
+                              Ukkonen phase drawings (Week 11)
+src/strings/utils/            Rolling hashes, text loading/streaming,
+                              synthetic text/DNA generators (Week 11)
 src/utils/benchmark.py        Reusable benchmarking framework
 src/utils/graph_generator.py  Seeded random graph generators (Week 4)
 src/utils/timer.py            Call/recursion-depth counter, timing, and
@@ -139,10 +159,11 @@ src/utils/visualization.py    networkx traversal-order drawings (Week 4),
                               TSP tour drawings (Week 9)
 tests/                        Pytest test suite
 benchmarks/                   Benchmark runners + raw results (CSV, PNG)
-analysis/                     Weekly technical reports (Weeks 2-10)
-examples/                     Runnable demos (week2_demo.py .. week10_demo.py)
+analysis/                     Weekly technical reports (Weeks 2-11)
+examples/                     Runnable demos (week2_demo.py .. week11_demo.py)
 examples/flow_inputs/         Sample inputs for the flow CLI (DIMACS,
                               edge list, matching, image, schedules)
+examples/string_inputs/       Sample FASTA genome for the DNA search demo
 docs/performance_analysis.md  Week 1 performance report with charts
 docs/images/                  Week 1 benchmark visualizations
 ```
@@ -300,6 +321,27 @@ Writes `flow_runtime.png`, `flow_memory.png`, `augmentations.png`,
 `ek_animation.gif` and `pr_animation.gif`, and
 `flow_comparison_table.csv` to `benchmarks/results/`.
 
+Week 11 (string search: KMP, Rabin-Karp, suffix array, suffix tree):
+
+```bash
+python benchmarks/week11_string_benchmark.py          # ~4 min
+python benchmarks/week11_string_benchmark.py --quick  # ~40 s
+```
+
+Compares brute force, KMP, Rabin-Karp, suffix array, suffix tree, and
+Python's `str.find` (C reference) on English-like text and DNA from
+10 KB to 5 MB: preprocessing time, search latency, index memory, the
+query count at which an index pays off, pattern-length effects, and
+the a^n worst case. Measures Rabin-Karp collision rates against
+(n - m + 1)/q, bad base/modulus choices, and batch matching; SA/LCP
+construction and LCP statistics; and the applications. Every answer
+is checked against `str.find`. Writes `runtime_comparison.png`,
+`collision_analysis.png`, `sa_lcp_stats.png`,
+`heatmap_dataset_sizes.png`, `string_applications.png`, example
+figures (`suffix_array_example.png`, `suffix_tree_example.png` and
+`.dot`, `ukkonen_steps.png`, `kmp_trace.png`), and
+`string_comparison_table.csv` to `benchmarks/results/`.
+
 ## Flow Solver CLI
 
 ```bash
@@ -329,6 +371,7 @@ python examples/week7_demo.py   # random pivots, Carmichael numbers, Bloom, MinH
 python examples/week8_demo.py   # P vs NP catalog, reductions, blow-up, approximations
 python examples/week9_demo.py   # certified ratios, LP rounding, Christofides, Max-Cut
 python examples/week10_demo.py  # max-flow solvers, min cut, matching, segmentation
+python examples/week11_demo.py  # KMP, Rabin-Karp, suffix array/tree, search engine
 ```
 
 ## Current Progress
@@ -369,6 +412,11 @@ python examples/week10_demo.py  # max-flow solvers, min cut, matching, segmentat
       highest-label, min-cost max-flow), matching, graph-cut
       segmentation, scheduling, validators, animations, CLI,
       benchmarks to 50k nodes, and technical report
+- [x] Week 11: String algorithms — KMP, Rabin-Karp (rolling hash,
+      collisions, batches), suffix array + Kasai LCP, Ukkonen suffix
+      tree, unified StringSearchEngine with recommendations,
+      plagiarism detection, DNA search, autocomplete; benchmarks to
+      5 MB and technical report
 
 ## Author
 
