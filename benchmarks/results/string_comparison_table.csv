@@ -1,0 +1,178 @@
+experiment,dataset,method,n,pattern_length,parameter,queries,preprocess_s,mean_search_s,std_search_s,memory_mb,value,value2,value3,valid,note
+search,english,naive,10000,12,,20,0,0.000538893,7.21167e-05,,0.5,,,True,value = mean matches per query
+search,english,kmp,10000,12,,20,4.03834e-07,0.000363615,6.69522e-05,,0.5,,,True,value = mean matches per query
+search,english,rk,10000,12,,20,1.12967e-06,0.00220436,3.58665e-05,,0.5,,,True,value = mean matches per query
+search,english,sa,10000,12,,20,0.00281521,4.10208e-06,1.87728e-07,0.700814,0.5,,,True,value = mean matches per query
+search,english,tree,10000,12,,20,0.00618292,8.85343e-07,5.81277e-07,2.64604,0.5,,,True,value = mean matches per query
+search,english,builtin,10000,12,,20,0,3.13789e-06,9.44399e-07,,0.5,,,True,value = mean matches per query
+search,english,naive,100000,12,,20,0,0.00531184,0.000608808,,0.55,,,True,value = mean matches per query
+search,english,kmp,100000,12,,20,4.57372e-07,0.00370028,0.000537289,,0.55,,,True,value = mean matches per query
+search,english,rk,100000,12,,20,1.15396e-06,0.0225476,0.000748425,,0.55,,,True,value = mean matches per query
+search,english,sa,100000,12,,20,0.0399487,5.07453e-06,1.42882e-07,6.96646,0.55,,,True,value = mean matches per query
+search,english,tree,100000,12,,20,0.0664412,8.99447e-07,5.58001e-07,27.2617,0.55,,,True,value = mean matches per query
+search,english,builtin,100000,12,,20,0,3.19444e-05,5.82945e-06,,0.55,,,True,value = mean matches per query
+search,english,naive,1000000,12,,20,0,0.0603214,0.0203436,,7.35,,,True,value = mean matches per query
+search,english,kmp,1000000,12,,20,4.71958e-07,0.0359783,0.00589172,,7.35,,,True,value = mean matches per query
+search,english,rk,1000000,12,,20,1.12842e-06,0.217462,0.00402594,,7.35,,,True,value = mean matches per query
+search,english,sa,1000000,12,,20,0.591204,5.97693e-06,7.38684e-07,69.623,7.35,,,True,value = mean matches per query
+search,english,tree,1000000,12,,20,1.0826,1.72057e-06,3.24511e-06,276.775,7.35,,,True,value = mean matches per query
+search,english,builtin,1000000,12,,20,0,0.000387755,0.00012219,,7.35,,,True,value = mean matches per query
+search,english,kmp,5000000,12,,20,4.15125e-07,0.18999,0.0242778,,3.05,,,True,value = mean matches per query
+search,english,rk,5000000,12,,20,1.17754e-06,1.10475,0.0255129,,3.05,,,True,value = mean matches per query
+search,english,sa,5000000,12,,20,6.01836,6.45217e-06,3.70853e-07,,3.05,,,True,value = mean matches per query
+search,english,builtin,5000000,12,,20,0,0.00187191,0.000639708,,3.05,,,True,value = mean matches per query
+search,dna,naive,10000,12,,20,0,0.00068669,1.12398e-05,,0.65,,,True,value = mean matches per query
+search,dna,kmp,10000,12,,20,4.39498e-07,0.000506736,1.23824e-05,,0.65,,,True,value = mean matches per query
+search,dna,rk,10000,12,,20,1.12792e-06,0.00219658,2.93955e-05,,0.65,,,True,value = mean matches per query
+search,dna,sa,10000,12,,20,0.00453946,4.21841e-06,1.63912e-07,0.701715,0.65,,,True,value = mean matches per query
+search,dna,tree,10000,12,,20,0.00725204,1.40081e-06,3.17736e-07,3.0913,0.65,,,True,value = mean matches per query
+search,dna,builtin,10000,12,,20,0,1.1276e-05,4.95421e-06,,0.65,,,True,value = mean matches per query
+search,dna,naive,100000,12,,20,0,0.007418,0.000547689,,0.6,,,True,value = mean matches per query
+search,dna,kmp,100000,12,,20,4.46749e-07,0.00513157,0.000226456,,0.6,,,True,value = mean matches per query
+search,dna,rk,100000,12,,20,1.13175e-06,0.021339,0.000231865,,0.6,,,True,value = mean matches per query
+search,dna,sa,100000,12,,20,0.063643,5.36614e-06,2.98289e-07,6.96714,0.6,,,True,value = mean matches per query
+search,dna,tree,100000,12,,20,0.0811557,1.52383e-06,2.00412e-07,31.8768,0.6,,,True,value = mean matches per query
+search,dna,builtin,100000,12,,20,0,8.97088e-05,2.61161e-05,,0.6,,,True,value = mean matches per query
+search,dna,naive,1000000,12,,20,0,0.0682796,0.00248314,,0.7,,,True,value = mean matches per query
+search,dna,kmp,1000000,12,,20,4.43042e-07,0.0493356,0.00118681,,0.7,,,True,value = mean matches per query
+search,dna,rk,1000000,12,,20,1.13467e-06,0.215595,0.00396795,,0.7,,,True,value = mean matches per query
+search,dna,sa,1000000,12,,20,0.968659,5.93242e-06,1.72201e-07,69.6237,0.7,,,True,value = mean matches per query
+search,dna,tree,1000000,12,,20,1.35571,1.64765e-06,2.28522e-07,316.118,0.7,,,True,value = mean matches per query
+search,dna,builtin,1000000,12,,20,0,0.00113536,0.000335861,,0.7,,,True,value = mean matches per query
+search,dna,kmp,5000000,12,,20,4.55211e-07,0.254578,0.00844073,,0.7,,,True,value = mean matches per query
+search,dna,rk,5000000,12,,20,1.11429e-06,1.10476,0.0182011,,0.7,,,True,value = mean matches per query
+search,dna,sa,5000000,12,,20,8.21691,6.56688e-06,2.70733e-07,,0.7,,,True,value = mean matches per query
+search,dna,builtin,5000000,12,,20,0,0.00553796,0.00136837,,0.7,,,True,value = mean matches per query
+pattern_length,english,kmp,1000000,4,,10,,0.037378,0.00562584,,,,,True,
+pattern_length,english,rk,1000000,4,,10,,0.213207,0.00484284,,,,,True,
+pattern_length,english,sa,1000000,4,,10,,0.000118573,0.000319293,,,,,True,
+pattern_length,english,tree,1000000,4,,10,,0.00191084,0.00551685,,,,,True,
+pattern_length,english,builtin,1000000,4,,10,,0.000916118,0.000801885,,,,,True,
+pattern_length,english,kmp,1000000,8,,10,,0.0382238,0.00727614,,,,,True,
+pattern_length,english,rk,1000000,8,,10,,0.223403,0.00720015,,,,,True,
+pattern_length,english,sa,1000000,8,,10,,5.93665e-06,7.12716e-07,,,,,True,
+pattern_length,english,tree,1000000,8,,10,,1.84726e-06,2.44336e-06,,,,,True,
+pattern_length,english,builtin,1000000,8,,10,,0.00047045,0.000116703,,,,,True,
+pattern_length,english,kmp,1000000,16,,10,,0.0339788,0.00215864,,,,,True,
+pattern_length,english,rk,1000000,16,,10,,0.225077,0.0039281,,,,,True,
+pattern_length,english,sa,1000000,16,,10,,5.75636e-06,1.62696e-07,,,,,True,
+pattern_length,english,tree,1000000,16,,10,,1.13235e-06,7.58739e-07,,,,,True,
+pattern_length,english,builtin,1000000,16,,10,,0.000335732,0.000143438,,,,,True,
+pattern_length,english,kmp,1000000,32,,10,,0.0387085,0.00600808,,,,,True,
+pattern_length,english,rk,1000000,32,,10,,0.226809,0.00512642,,,,,True,
+pattern_length,english,sa,1000000,32,,10,,6.74286e-06,5.39024e-07,,,,,True,
+pattern_length,english,tree,1000000,32,,10,,1.55772e-06,1.23498e-06,,,,,True,
+pattern_length,english,builtin,1000000,32,,10,,0.000168067,6.0229e-05,,,,,True,
+pattern_length,english,kmp,1000000,64,,10,,0.0364079,0.00650955,,,,,True,
+pattern_length,english,rk,1000000,64,,10,,0.22421,0.00465765,,,,,True,
+pattern_length,english,sa,1000000,64,,10,,5.79064e-06,1.70673e-07,,,,,True,
+pattern_length,english,tree,1000000,64,,10,,2.2102e-06,2.00648e-06,,,,,True,
+pattern_length,english,builtin,1000000,64,,10,,0.000143623,6.2785e-05,,,,,True,
+pattern_length,english,kmp,1000000,128,,10,,0.0361281,0.00303316,,,,,True,
+pattern_length,english,rk,1000000,128,,10,,0.217754,0.00341776,,,,,True,
+pattern_length,english,sa,1000000,128,,10,,5.70569e-06,2.28432e-07,,,,,True,
+pattern_length,english,tree,1000000,128,,10,,3.71184e-06,3.56459e-06,,,,,True,
+pattern_length,english,builtin,1000000,128,,10,,0.000119716,4.0474e-05,,,,,True,
+worst_case,a^n,naive,100000,2,,1,,0.00879054,,,199998,,,True,value = character comparisons
+worst_case,a^n,kmp,100000,2,,1,,0.00786212,,,199999,,,True,value = character comparisons
+worst_case,a^n,rk,100000,2,,1,,0.0187861,,,0,,,True,value = character comparisons
+worst_case,a^n,naive,100000,4,,1,,0.0182382,,,399988,,,True,value = character comparisons
+worst_case,a^n,kmp,100000,4,,1,,0.00889742,,,199997,,,True,value = character comparisons
+worst_case,a^n,rk,100000,4,,1,,0.0183974,,,0,,,True,value = character comparisons
+worst_case,a^n,naive,100000,8,,1,,0.0329965,,,799944,,,True,value = character comparisons
+worst_case,a^n,kmp,100000,8,,1,,0.00846388,,,199993,,,True,value = character comparisons
+worst_case,a^n,rk,100000,8,,1,,0.0189941,,,0,,,True,value = character comparisons
+worst_case,a^n,naive,100000,16,,1,,0.0659214,,,1599760,,,True,value = character comparisons
+worst_case,a^n,kmp,100000,16,,1,,0.00829271,,,199985,,,True,value = character comparisons
+worst_case,a^n,rk,100000,16,,1,,0.0186028,,,0,,,True,value = character comparisons
+worst_case,a^n,naive,100000,32,,1,,0.137088,,,3199008,,,True,value = character comparisons
+worst_case,a^n,kmp,100000,32,,1,,0.008168,,,199969,,,True,value = character comparisons
+worst_case,a^n,rk,100000,32,,1,,0.0183835,,,0,,,True,value = character comparisons
+worst_case,a^n,naive,100000,64,,1,,0.253927,,,6395968,,,True,value = character comparisons
+worst_case,a^n,kmp,100000,64,,1,,0.00826304,,,199937,,,True,value = character comparisons
+worst_case,a^n,rk,100000,64,,1,,0.0187718,,,0,,,True,value = character comparisons
+worst_case,a^n,rk,100000,2,all windows match,1,,,,,199998,,,True,value = character comparisons
+worst_case,a^n,rk,100000,4,all windows match,1,,,,,399988,,,True,value = character comparisons
+worst_case,a^n,rk,100000,8,all windows match,1,,,,,799944,,,True,value = character comparisons
+worst_case,a^n,rk,100000,16,all windows match,1,,,,,1599760,,,True,value = character comparisons
+worst_case,a^n,rk,100000,32,all windows match,1,,,,,3199008,,,True,value = character comparisons
+worst_case,a^n,rk,100000,64,all windows match,1,,,,,6395968,,,True,value = character comparisons
+collision_modulus,english,rk,1000000,12,q=7,5,,0.103679,,,142933,142933,142856,True,value = spurious hits per verified scan; value2 = Monte Carlo false positives; value3 = expected (n - m + 1)/q
+collision_modulus,english,rk,1000000,12,q=31,5,,0.0861039,,,32107.4,32107.4,32257.7,True,value = spurious hits per verified scan; value2 = Monte Carlo false positives; value3 = expected (n - m + 1)/q
+collision_modulus,english,rk,1000000,12,q=101,5,,0.0940737,,,9859.6,9859.6,9900.88,True,value = spurious hits per verified scan; value2 = Monte Carlo false positives; value3 = expected (n - m + 1)/q
+collision_modulus,english,rk,1000000,12,q=1009,5,,0.0927924,,,1031.8,1031.8,991.069,True,value = spurious hits per verified scan; value2 = Monte Carlo false positives; value3 = expected (n - m + 1)/q
+collision_modulus,english,rk,1000000,12,q=10007,5,,0.0985864,,,95.4,95.4,99.9289,True,value = spurious hits per verified scan; value2 = Monte Carlo false positives; value3 = expected (n - m + 1)/q
+collision_modulus,english,rk,1000000,12,q=100003,5,,0.100705,,,7.4,7.4,9.99959,True,value = spurious hits per verified scan; value2 = Monte Carlo false positives; value3 = expected (n - m + 1)/q
+collision_modulus,english,rk,1000000,12,q=1000003,5,,0.107639,,,0.6,0.6,0.999986,True,value = spurious hits per verified scan; value2 = Monte Carlo false positives; value3 = expected (n - m + 1)/q
+collision_modulus,english,rk,1000000,12,q=1000000007,5,,0.136399,,,0,0,0.000999989,True,value = spurious hits per verified scan; value2 = Monte Carlo false positives; value3 = expected (n - m + 1)/q
+collision_modulus,english,rk,1000000,12,q=2305843009213693951,5,,0.210237,,,0,0,4.33676e-13,True,value = spurious hits per verified scan; value2 = Monte Carlo false positives; value3 = expected (n - m + 1)/q
+collision_params,english,rk,1000000,12,"prime q=65,521, random base",10,,,,,13.2,,,True,value = spurious hash hits per scan
+collision_params,english,rk,1000000,12,"q=2^16, base 256",10,,,,,8860.4,,,True,value = spurious hash hits per scan
+collision_params,english,rk,1000000,12,"q=2^61-1, random base",10,,,,,0,,,True,value = spurious hash hits per scan
+collision_params,english,rk,1000000,12,base 1 (character sum),10,,,,,5019.7,,,True,value = spurious hash hits per scan
+collision_params,english,rk,1000000,12,base = q (only last char),10,,,,,50859.5,,,True,value = spurious hash hits per scan
+birthday,random,rk,,,q=101,30,,,,,13.1,,,True,theory sqrt(pi q / 2) = 12.6
+birthday,random,rk,,,q=1009,30,,,,,46.5,,,True,theory sqrt(pi q / 2) = 39.8
+birthday,random,rk,,,q=10007,30,,,,,128.533,,,True,theory sqrt(pi q / 2) = 125.4
+birthday,random,rk,,,q=100003,30,,,,,450.033,,,True,theory sqrt(pi q / 2) = 396.3
+birthday,random,rk,,,q=1000003,30,,,,,1395.83,,,True,theory sqrt(pi q / 2) = 1253.3
+batch,english,rk-multi,1000000,12,P=1,1,,0.220901,,,,,,True,total time for all patterns
+batch,english,kmp,1000000,12,P=1,1,,0.0303072,,,,,,True,total time for all patterns
+batch,english,rk,1000000,12,P=1,1,,0.195761,,,,,,True,total time for all patterns
+batch,english,rk-multi,1000000,12,P=10,10,,0.218999,,,,,,True,total time for all patterns
+batch,english,kmp,1000000,12,P=10,10,,0.339601,,,,,,True,total time for all patterns
+batch,english,rk,1000000,12,P=10,10,,1.97704,,,,,,True,total time for all patterns
+batch,english,rk-multi,1000000,12,P=50,50,,0.214693,,,,,,True,total time for all patterns
+batch,english,kmp,1000000,12,P=50,50,,1.79671,,,,,,True,total time for all patterns
+batch,english,rk,1000000,12,P=50,50,,9.75062,,,,,,True,total time for all patterns
+batch,english,rk-multi,1000000,12,P=100,100,,0.209826,,,,,,True,total time for all patterns
+batch,english,kmp,1000000,12,P=100,100,,3.7166,,,,,,True,total time for all patterns
+batch,english,rk,1000000,12,P=100,100,,20.3152,,,,,,True,total time for all patterns
+batch,english,rk-multi,1000000,12,P=500,500,,0.218642,,,,,,True,total time for all patterns
+batch,english,kmp,1000000,12,P=500,500,,19.1453,,,,,,True,total time for all patterns (extrapolated from 20)
+batch,english,rk,1000000,12,P=500,500,,97.5576,,,,,,True,total time for all patterns (extrapolated from 20)
+construction,english,doubling,1000,,,,0.000568167,,,,4,,,True,value = doubling rounds
+construction,english,python,1000,,,,0.00118592,,,,,,,True,
+construction,english,naive,1000,,,,0.000345542,,,,,,,True,
+construction,english,tree,1000,,,,0.000638541,,,,,,,True,
+construction,english,kasai,1000,,,,0.000250417,,,,,,,True,
+construction,english,doubling,10000,,,,0.00292104,,,,5,,,True,value = doubling rounds
+construction,english,python,10000,,,,0.0161953,,,,,,,True,
+construction,english,naive,10000,,,,0.0211212,,,,,,,True,
+construction,english,tree,10000,,,,0.00668625,,,,,,,True,
+construction,english,kasai,10000,,,,0.00230017,,,,,,,True,
+construction,english,doubling,100000,,,,0.0418868,,,,5,,,True,value = doubling rounds
+construction,english,python,100000,,,,0.178014,,,,,,,True,
+construction,english,tree,100000,,,,0.0728201,,,,,,,True,
+construction,english,kasai,100000,,,,0.0236753,,,,,,,True,
+construction,english,doubling,1000000,,,,0.603884,,,,5,,,True,value = doubling rounds
+construction,english,tree,1000000,,,,1.13341,,,,,,,True,
+construction,english,kasai,1000000,,,,0.550552,,,,,,,True,
+construction,english,doubling,5000000,,,,6.71913,,,,6,,,True,value = doubling rounds
+construction,english,kasai,5000000,,,,3.09182,,,,,,,True,
+lcp,english,sa,1000000,,rounds=5,,,,,,8.90348,31,17,True,value = mean LCP; value2 = max LCP; value3 = 99th percentile; distinct substrings 5e+11
+lcp,dna,sa,1000000,,rounds=9,,,,,,22.8204,499,327,True,value = mean LCP; value2 = max LCP; value3 = 99th percentile; distinct substrings 5e+11
+lcp,logs,sa,1000000,,rounds=6,,,,,,22.3963,58,45,True,value = mean LCP; value2 = max LCP; value3 = 99th percentile; distinct substrings 5e+11
+lcp,random,sa,1000000,,rounds=4,,,,,,3.61875,8,5,True,value = mean LCP; value2 = max LCP; value3 = 99th percentile; distinct substrings 5e+11
+plagiarism,english,rk+sa,20000,,copied=0.0,,,0.119069,,,0.00320718,0.01155,0.000600034,True,value = containment; value2 = character coverage; value3 = Jaccard; spurious hash hits 0
+plagiarism,english,rk+sa,20000,,copied=0.1,,,0.133911,,,0.0987575,0.1097,0.0201075,True,value = containment; value2 = character coverage; value3 = Jaccard; spurious hash hits 0
+plagiarism,english,rk+sa,20000,,copied=0.2,,,0.123848,,,0.196872,0.2075,0.0409474,True,value = containment; value2 = character coverage; value3 = Jaccard; spurious hash hits 0
+plagiarism,english,rk+sa,20000,,copied=0.4,,,0.124736,,,0.395597,0.403,0.0683785,True,value = containment; value2 = character coverage; value3 = Jaccard; spurious hash hits 0
+plagiarism,english,rk+sa,20000,,copied=0.6,,,0.123343,,,0.589853,0.6001,0.109293,True,value = containment; value2 = character coverage; value3 = Jaccard; spurious hash hits 0
+plagiarism,english,rk+sa,20000,,copied=0.8,,,0.142403,,,0.784033,0.79665,0.164321,True,value = containment; value2 = character coverage; value3 = Jaccard; spurious hash hits 0
+dna,dna,sa,100000,30,k=0,20,0.0626513,8.5812e-06,,,0,,,True,value = planted 2-mutation genes recovered
+dna,dna,sa,100000,30,k=1,20,0.0626513,1.27395e-05,,,0,,,True,value = planted 2-mutation genes recovered
+dna,dna,sa,100000,30,k=2,20,0.0626513,1.96687e-05,,,1,,,True,value = planted 2-mutation genes recovered
+dna,dna,sa,100000,30,k=3,20,0.0626513,4.67041e-05,,,1,,,True,value = planted 2-mutation genes recovered
+dna,dna,brute force,100000,30,k=2,3,,0.127166,,,,,,True,Hamming scan of every window
+dna,dna,sa,1000000,30,k=0,20,0.967046,1.17062e-05,,,0,,,True,value = planted 2-mutation genes recovered
+dna,dna,sa,1000000,30,k=1,20,0.967046,1.59396e-05,,,0,,,True,value = planted 2-mutation genes recovered
+dna,dna,sa,1000000,30,k=2,20,0.967046,2.83206e-05,,,1,,,True,value = planted 2-mutation genes recovered
+dna,dna,sa,1000000,30,k=3,20,0.967046,0.000244031,,,1,,,True,value = planted 2-mutation genes recovered
+dna,dna,brute force,1000000,30,k=2,3,,1.2955,,,,,,True,Hamming scan of every window
+autocomplete,zipf words,trie,10000,,k=10,300,0.0166547,1.87054e-05,,,353.157,,,True,n = vocabulary size; value = mean completions per prefix
+autocomplete,zipf words,sorted+scan,10000,,k=10,300,,4.05821e-05,,,353.157,,,True,n = vocabulary size; value = mean completions per prefix
+autocomplete,zipf words,trie,100000,,k=10,300,0.198472,3.74565e-05,,,4224.96,,,True,n = vocabulary size; value = mean completions per prefix
+autocomplete,zipf words,sorted+scan,100000,,k=10,300,,0.000452904,,,4224.96,,,True,n = vocabulary size; value = mean completions per prefix
+autocomplete,zipf words,trie,500000,,k=10,300,1.92097,7.02193e-05,,,19235.5,,,True,n = vocabulary size; value = mean completions per prefix
+autocomplete,zipf words,sorted+scan,500000,,k=10,300,,0.00542871,,,19235.5,,,True,n = vocabulary size; value = mean completions per prefix
