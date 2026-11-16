@@ -135,6 +135,22 @@ src/strings/visualization/    SA/LCP plots, KMP traces, suffix tree and
                               Ukkonen phase drawings (Week 11)
 src/strings/utils/            Rolling hashes, text loading/streaming,
                               synthetic text/DNA generators (Week 11)
+src/fft_analyzer/core/        FFT (recursive, iterative, Bluestein), FFT
+                              convolution; matrix multiply (classical,
+                              Strassen), LU, QR (Gram-Schmidt, MGS,
+                              Householder), eigenvalues; conditioning,
+                              norms, cancellation utilities (Week 12)
+src/fft_analyzer/signal/      Generators, FFT filters + windows, FIR
+                              design, PSD/Welch/STFT/peaks (Week 12)
+src/fft_analyzer/image/       FFT image filters, JPEG-style DCT
+                              compression with PSNR/SSIM (Week 12)
+src/fft_analyzer/applications/
+                              Audio (WAV) processor, image processor,
+                              time-series analyzer (Week 12)
+src/fft_analyzer/visualization/
+                              Spectra, spectrograms, 2-D FFT heatmaps,
+                              condition plots, FFT/filter animations
+                              (Week 12)
 src/utils/benchmark.py        Reusable benchmarking framework
 src/utils/graph_generator.py  Seeded random graph generators (Week 4)
 src/utils/timer.py            Call/recursion-depth counter, timing, and
@@ -159,8 +175,8 @@ src/utils/visualization.py    networkx traversal-order drawings (Week 4),
                               TSP tour drawings (Week 9)
 tests/                        Pytest test suite
 benchmarks/                   Benchmark runners + raw results (CSV, PNG)
-analysis/                     Weekly technical reports (Weeks 2-11)
-examples/                     Runnable demos (week2_demo.py .. week11_demo.py)
+analysis/                     Weekly technical reports (Weeks 2-12)
+examples/                     Runnable demos (week2_demo.py .. week12_demo.py)
 examples/flow_inputs/         Sample inputs for the flow CLI (DIMACS,
                               edge list, matching, image, schedules)
 examples/string_inputs/       Sample FASTA genome for the DNA search demo
@@ -342,6 +358,27 @@ figures (`suffix_array_example.png`, `suffix_tree_example.png` and
 `.dot`, `ukkonen_steps.png`, `kmp_trace.png`), and
 `string_comparison_table.csv` to `benchmarks/results/`.
 
+Week 12 (FFTAnalyzer: FFT, matrix algorithms, numerical stability,
+signal/image/time-series applications):
+
+```bash
+python benchmarks/week12_fft_benchmark.py          # ~40 s
+python benchmarks/week12_fft_benchmark.py --quick  # ~15 s
+```
+
+Times direct DFT, recursive and iterative Cooley-Tukey, Bluestein, and
+numpy.fft up to 2^20 points with errors against numpy; FFT vs direct
+convolution (1-D and 2-D); classical vs Strassen vs BLAS multiplication
+with float32 error; LU/QR timing; conditioning, LU pivoting, QR
+orthogonality loss, cancellation, summation and power-method
+convergence; window leakage, peak accuracy, Welch variance, filter
+attenuation; DCT compression rate-distortion, denoising; hum removal,
+spectral gating, period detection. Writes `fft_performance.png`,
+`matrix_performance.png`, `numerical_stability.png`,
+`signal_analysis.png`, `image_processing.png`, `image_examples.png`,
+`time_series_analysis.png`, `fft_stages.gif`, `filter_animation.gif`,
+and `fft_comparison_table.csv` to `benchmarks/results/`.
+
 ## Flow Solver CLI
 
 ```bash
@@ -372,6 +409,7 @@ python examples/week8_demo.py   # P vs NP catalog, reductions, blow-up, approxim
 python examples/week9_demo.py   # certified ratios, LP rounding, Christofides, Max-Cut
 python examples/week10_demo.py  # max-flow solvers, min cut, matching, segmentation
 python examples/week11_demo.py  # KMP, Rabin-Karp, suffix array/tree, search engine
+python examples/week12_demo.py  # FFT, audio clean-up, image compression, stability
 ```
 
 ## Current Progress
@@ -417,6 +455,11 @@ python examples/week11_demo.py  # KMP, Rabin-Karp, suffix array/tree, search eng
       tree, unified StringSearchEngine with recommendations,
       plagiarism detection, DNA search, autocomplete; benchmarks to
       5 MB and technical report
+- [x] Week 12: FFTAnalyzer — Cooley-Tukey FFT (recursive, iterative,
+      2^20 points) and convolution, Strassen/LU/QR/power method,
+      conditioning and cancellation tools, FFT filters and spectral
+      analysis, DCT image compression, WAV audio processing,
+      time-series analytics, animations, benchmarks and report
 
 ## Author
 
