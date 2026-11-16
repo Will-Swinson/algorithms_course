@@ -266,7 +266,8 @@ def plot_mixed_panels(panels: List[Dict[str, Any]], save_path: str,
     All kinds take "title", "xlabel", "ylabel", optional "colors",
     "logx", "logy". A log x-axis is ticked at the measured x values
     unless "measured_ticks": False (use that when x is a measured
-    quantity such as time, not a chosen input size).
+    quantity such as time, not a chosen input size); "log_labels": True
+    keeps matplotlib's 10ⁿ labels for axes spanning many decades.
     """
     nrows = (len(panels) + ncols - 1) // ncols
     fig, axes = plt.subplots(nrows, ncols, figsize=(6.5 * ncols,
@@ -319,8 +320,9 @@ def _set_scales(ax, panel: Dict[str, Any], xs_all: Sequence[float]) -> None:
         xs_all = sorted(set(xs_all))
         if 0 < len(xs_all) <= 12 and panel.get("measured_ticks", True):
             ax.set_xticks(xs_all)
-        ax.xaxis.set_major_formatter(ScalarFormatter())
-        ax.xaxis.set_minor_formatter(NullFormatter())
+        if not panel.get("log_labels"):     # log_labels: keep 10ⁿ tick labels
+            ax.xaxis.set_major_formatter(ScalarFormatter())
+            ax.xaxis.set_minor_formatter(NullFormatter())
     if panel.get("logy"):
         ax.set_yscale("log")
 

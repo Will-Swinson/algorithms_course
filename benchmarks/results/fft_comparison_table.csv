@@ -1,0 +1,369 @@
+experiment,method,n,parameter,mean_time_s,value,value2,valid,note
+fft,direct DFT O(n²),16,,7.39916e-06,3.12542e-15,,True,value = max error / max |X| vs numpy
+fft,"recursive, Python lists",16,,1.32725e-05,1.0598e-16,,True,value = max error / max |X| vs numpy
+fft,recursive (numpy),16,,7.545e-06,3.12542e-15,,True,value = max error / max |X| vs numpy
+fft,iterative (numpy),16,,1.20283e-05,1.28519e-16,,True,value = max error / max |X| vs numpy
+fft,numpy.fft (C reference),16,,2.38168e-06,0,,True,value = max error / max |X| vs numpy
+fft_roundtrip,iterative,16,,,1.9444e-16,,True,max |ifft(fft(x)) - x| / max |x|
+fft,Bluestein (n = 2^k + 1),17,,6.56908e-05,7.22384e-16,,True,
+fft,direct DFT O(n²),32,,2.20817e-05,5.67346e-15,,True,value = max error / max |X| vs numpy
+fft,"recursive, Python lists",32,,2.96475e-05,3.20172e-16,,True,value = max error / max |X| vs numpy
+fft,recursive (numpy),32,,1.85083e-05,2.48233e-15,,True,value = max error / max |X| vs numpy
+fft,iterative (numpy),32,,1.73675e-05,3.37491e-16,,True,value = max error / max |X| vs numpy
+fft,numpy.fft (C reference),32,,2.475e-06,0,,True,value = max error / max |X| vs numpy
+fft_roundtrip,iterative,32,,,2.0777e-16,,True,max |ifft(fft(x)) - x| / max |x|
+fft,Bluestein (n = 2^k + 1),33,,8.11175e-05,7.6027e-16,,True,
+fft,direct DFT O(n²),64,,6.49783e-05,1.35877e-14,,True,value = max error / max |X| vs numpy
+fft,"recursive, Python lists",64,,6.92283e-05,2.90583e-16,,True,value = max error / max |X| vs numpy
+fft,recursive (numpy),64,,4.16758e-05,2.14815e-15,,True,value = max error / max |X| vs numpy
+fft,iterative (numpy),64,,1.84542e-05,3.78873e-16,,True,value = max error / max |X| vs numpy
+fft,numpy.fft (C reference),64,,2.7075e-06,0,,True,value = max error / max |X| vs numpy
+fft_roundtrip,iterative,64,,,2.41404e-16,,True,max |ifft(fft(x)) - x| / max |x|
+fft,Bluestein (n = 2^k + 1),65,,9.68208e-05,6.58266e-16,,True,
+fft,direct DFT O(n²),128,,0.000219487,2.67036e-14,,True,value = max error / max |X| vs numpy
+fft,"recursive, Python lists",128,,0.000151824,5.64652e-16,,True,value = max error / max |X| vs numpy
+fft,recursive (numpy),128,,8.53167e-05,2.73301e-15,,True,value = max error / max |X| vs numpy
+fft,iterative (numpy),128,,2.39117e-05,5.11991e-16,,True,value = max error / max |X| vs numpy
+fft,numpy.fft (C reference),128,,3.03832e-06,0,,True,value = max error / max |X| vs numpy
+fft_roundtrip,iterative,128,,,2.88855e-16,,True,max |ifft(fft(x)) - x| / max |x|
+fft,Bluestein (n = 2^k + 1),129,,0.000126465,7.72926e-16,,True,
+fft,direct DFT O(n²),256,,0.000948237,5.77573e-14,,True,value = max error / max |X| vs numpy
+fft,"recursive, Python lists",256,,0.000319796,4.5003e-16,,True,value = max error / max |X| vs numpy
+fft,recursive (numpy),256,,0.000172677,2.95181e-15,,True,value = max error / max |X| vs numpy
+fft,iterative (numpy),256,,2.91142e-05,4.29563e-16,,True,value = max error / max |X| vs numpy
+fft,numpy.fft (C reference),256,,3.42e-06,0,,True,value = max error / max |X| vs numpy
+fft_roundtrip,iterative,256,,,3.57397e-16,,True,max |ifft(fft(x)) - x| / max |x|
+fft,Bluestein (n = 2^k + 1),257,,0.000175402,1.1133e-15,,True,
+fft,direct DFT O(n²),512,,0.00400105,1.32142e-13,,True,value = max error / max |X| vs numpy
+fft,"recursive, Python lists",512,,0.000708267,5.82803e-16,,True,value = max error / max |X| vs numpy
+fft,recursive (numpy),512,,0.000361088,4.07309e-15,,True,value = max error / max |X| vs numpy
+fft,iterative (numpy),512,,3.71058e-05,5.08819e-16,,True,value = max error / max |X| vs numpy
+fft,numpy.fft (C reference),512,,4.40916e-06,0,,True,value = max error / max |X| vs numpy
+fft_roundtrip,iterative,512,,,4.62599e-16,,True,max |ifft(fft(x)) - x| / max |x|
+fft,Bluestein (n = 2^k + 1),513,,0.000281619,1.48642e-15,,True,
+fft,direct DFT O(n²),1024,,0.0152805,2.03095e-13,,True,value = max error / max |X| vs numpy
+fft,"recursive, Python lists",1024,,0.00155761,5.74512e-16,,True,value = max error / max |X| vs numpy
+fft,recursive (numpy),1024,,0.000731073,3.21043e-15,,True,value = max error / max |X| vs numpy
+fft,iterative (numpy),1024,,5.24125e-05,5.21745e-16,,True,value = max error / max |X| vs numpy
+fft,numpy.fft (C reference),1024,,6.9675e-06,0,,True,value = max error / max |X| vs numpy
+fft_roundtrip,iterative,1024,,,3.87728e-16,,True,max |ifft(fft(x)) - x| / max |x|
+fft,Bluestein (n = 2^k + 1),1025,,0.000609671,1.04711e-15,,True,
+fft,direct DFT O(n²),2048,,0.0700455,3.73805e-13,,True,value = max error / max |X| vs numpy
+fft,"recursive, Python lists",2048,,0.00367205,6.61308e-16,,True,value = max error / max |X| vs numpy
+fft,recursive (numpy),2048,,0.00161037,3.44023e-15,,True,value = max error / max |X| vs numpy
+fft,iterative (numpy),2048,,9.39392e-05,6.41563e-16,,True,value = max error / max |X| vs numpy
+fft,numpy.fft (C reference),2048,,1.22875e-05,0,,True,value = max error / max |X| vs numpy
+fft_roundtrip,iterative,2048,,,4.86095e-16,,True,max |ifft(fft(x)) - x| / max |x|
+fft,Bluestein (n = 2^k + 1),2049,,0.00151964,1.18585e-15,,True,
+fft,direct DFT O(n²),4096,,0.33886,7.66612e-13,,True,value = max error / max |X| vs numpy
+fft,"recursive, Python lists",4096,,0.0103121,6.87129e-16,,True,value = max error / max |X| vs numpy
+fft,recursive (numpy),4096,,0.00313446,3.21763e-15,,True,value = max error / max |X| vs numpy
+fft,iterative (numpy),4096,,0.00016675,5.55618e-16,,True,value = max error / max |X| vs numpy
+fft,numpy.fft (C reference),4096,,8.78749e-05,0,,True,value = max error / max |X| vs numpy
+fft_roundtrip,iterative,4096,,,5.02985e-16,,True,max |ifft(fft(x)) - x| / max |x|
+fft,Bluestein (n = 2^k + 1),4097,,0.00288321,1.03586e-15,,True,
+fft,"recursive, Python lists",8192,,0.0181883,7.31708e-16,,True,value = max error / max |X| vs numpy
+fft,recursive (numpy),8192,,0.00649425,3.41114e-15,,True,value = max error / max |X| vs numpy
+fft,iterative (numpy),8192,,0.000378042,7.17499e-16,,True,value = max error / max |X| vs numpy
+fft,numpy.fft (C reference),8192,,6.9125e-05,0,,True,value = max error / max |X| vs numpy
+fft_roundtrip,iterative,8192,,,5.07449e-16,,True,max |ifft(fft(x)) - x| / max |x|
+fft,Bluestein (n = 2^k + 1),8193,,0.00508721,1.15121e-15,,True,
+fft,recursive (numpy),16384,,0.0134003,3.62146e-15,,True,value = max error / max |X| vs numpy
+fft,iterative (numpy),16384,,0.00118008,8.46608e-16,,True,value = max error / max |X| vs numpy
+fft,numpy.fft (C reference),16384,,0.000253709,0,,True,value = max error / max |X| vs numpy
+fft_roundtrip,iterative,16384,,,5.03754e-16,,True,max |ifft(fft(x)) - x| / max |x|
+fft,Bluestein (n = 2^k + 1),16385,,0.017528,1.23054e-15,,True,
+fft,recursive (numpy),32768,,0.0454117,4.06542e-15,,True,value = max error / max |X| vs numpy
+fft,iterative (numpy),32768,,0.00560746,9.21485e-16,,True,value = max error / max |X| vs numpy
+fft,numpy.fft (C reference),32768,,0.000938292,0,,True,value = max error / max |X| vs numpy
+fft_roundtrip,iterative,32768,,,6.1975e-16,,True,max |ifft(fft(x)) - x| / max |x|
+fft,Bluestein (n = 2^k + 1),32769,,0.0552628,1.38406e-15,,True,
+fft,recursive (numpy),65536,,0.0828718,3.7441e-15,,True,value = max error / max |X| vs numpy
+fft,iterative (numpy),65536,,0.00761054,9.5988e-16,,True,value = max error / max |X| vs numpy
+fft,numpy.fft (C reference),65536,,0.00136758,0,,True,value = max error / max |X| vs numpy
+fft_roundtrip,iterative,65536,,,5.52795e-16,,True,max |ifft(fft(x)) - x| / max |x|
+fft,Bluestein (n = 2^k + 1),65537,,0.0895164,1.4645e-15,,True,
+fft,recursive (numpy),131072,,0.105882,4.51072e-15,,True,value = max error / max |X| vs numpy
+fft,iterative (numpy),131072,,0.00808,1.12317e-15,,True,value = max error / max |X| vs numpy
+fft,numpy.fft (C reference),131072,,0.00206263,0,,True,value = max error / max |X| vs numpy
+fft_roundtrip,iterative,131072,,,6.40827e-16,,True,max |ifft(fft(x)) - x| / max |x|
+fft,Bluestein (n = 2^k + 1),131073,,0.204509,1.47213e-15,,True,
+fft,recursive (numpy),262144,,0.20771,4.17492e-15,,True,value = max error / max |X| vs numpy
+fft,iterative (numpy),262144,,0.0214486,1.15825e-15,,True,value = max error / max |X| vs numpy
+fft,numpy.fft (C reference),262144,,0.0050375,0,,True,value = max error / max |X| vs numpy
+fft_roundtrip,iterative,262144,,,5.94732e-16,,True,max |ifft(fft(x)) - x| / max |x|
+fft,Bluestein (n = 2^k + 1),262145,,0.353323,1.43517e-15,,True,
+fft,recursive (numpy),524288,,0.422369,3.76563e-15,,True,value = max error / max |X| vs numpy
+fft,iterative (numpy),524288,,0.0541643,1.11629e-15,,True,value = max error / max |X| vs numpy
+fft,numpy.fft (C reference),524288,,0.00978387,0,,True,value = max error / max |X| vs numpy
+fft_roundtrip,iterative,524288,,,6.36132e-16,,True,max |ifft(fft(x)) - x| / max |x|
+fft,Bluestein (n = 2^k + 1),524289,,0.763409,1.74895e-15,,True,
+fft,recursive (numpy),1048576,,0.872078,4.00338e-15,,True,value = max error / max |X| vs numpy
+fft,iterative (numpy),1048576,,0.105933,1.09348e-15,,True,value = max error / max |X| vs numpy
+fft,numpy.fft (C reference),1048576,,0.0198773,0,,True,value = max error / max |X| vs numpy
+fft_roundtrip,iterative,1048576,,,6.46619e-16,,True,max |ifft(fft(x)) - x| / max |x|
+convolution,FFT (ours),65536,3,0.0280769,2.73599e-16,,True,parameter = kernel length
+convolution,direct shift-add,65536,3,8.28092e-05,1.34695e-16,,True,parameter = kernel length
+convolution,"numpy.convolve (C, direct)",65536,3,2.60258e-05,0,,True,parameter = kernel length
+convolution,FFT (ours),65536,9,0.028654,4.0645e-16,,True,parameter = kernel length
+convolution,direct shift-add,65536,9,0.000220967,2.70966e-16,,True,parameter = kernel length
+convolution,"numpy.convolve (C, direct)",65536,9,6.50525e-05,0,,True,parameter = kernel length
+convolution,FFT (ours),65536,33,0.024141,3.70169e-16,,True,parameter = kernel length
+convolution,direct shift-add,65536,33,0.000803667,4.93559e-16,,True,parameter = kernel length
+convolution,"numpy.convolve (C, direct)",65536,33,0.000616596,0,,True,parameter = kernel length
+convolution,FFT (ours),65536,129,0.025687,4.28242e-16,,True,parameter = kernel length
+convolution,direct shift-add,65536,129,0.00312951,9.99231e-16,,True,parameter = kernel length
+convolution,"numpy.convolve (C, direct)",65536,129,0.00101625,0,,True,parameter = kernel length
+convolution,FFT (ours),65536,513,0.0300292,6.50464e-16,,True,parameter = kernel length
+convolution,direct shift-add,65536,513,0.0126669,1.59002e-15,,True,parameter = kernel length
+convolution,"numpy.convolve (C, direct)",65536,513,0.00384656,0,,True,parameter = kernel length
+convolution,FFT (ours),65536,2049,0.0236988,6.10282e-16,,True,parameter = kernel length
+convolution,direct shift-add,65536,2049,0.0497251,2.31907e-15,,True,parameter = kernel length
+convolution,"numpy.convolve (C, direct)",65536,2049,0.0224037,0,,True,parameter = kernel length
+convolution,FFT (ours),65536,8193,0.0262014,1.12353e-15,,True,parameter = kernel length
+convolution,direct shift-add,65536,8193,0.1994,6.88163e-15,,True,parameter = kernel length
+convolution,"numpy.convolve (C, direct)",65536,8193,0.0946753,0,,True,parameter = kernel length
+matmul,numpy @ (BLAS),16,,1.22e-06,0,4096,True,value2 = scalar multiplications
+matmul,classical triple loop,16,,0.000149952,1.1638e-16,4096,True,value2 = scalar multiplications
+matmul,Strassen (cutoff 32),16,,0.000188571,1.1638e-16,4096,True,value2 = scalar multiplications
+matmul,numpy @ (BLAS),32,,1.25666e-06,0,32768,True,value2 = scalar multiplications
+matmul,classical triple loop,32,,0.000935607,2.25138e-16,32768,True,value2 = scalar multiplications
+matmul,Strassen (cutoff 32),32,,0.000853129,2.25138e-16,32768,True,value2 = scalar multiplications
+matmul,numpy @ (BLAS),64,,2.76084e-06,0,262144,True,value2 = scalar multiplications
+matmul,classical triple loop,64,,0.00584836,3.62277e-16,262144,True,value2 = scalar multiplications
+matmul,Strassen (cutoff 32),64,,0.00646079,6.03796e-16,229376,True,value2 = scalar multiplications
+matmul,numpy @ (BLAS),128,,1.5125e-05,0,2097152,True,value2 = scalar multiplications
+matmul,classical triple loop,128,,0.043537,3.22084e-16,2097152,True,value2 = scalar multiplications
+matmul,Strassen (cutoff 32),128,,0.0418353,1.22392e-15,1605632,True,value2 = scalar multiplications
+matmul,numpy @ (BLAS),256,,8.4333e-05,0,16777216,True,value2 = scalar multiplications
+matmul,classical triple loop,256,,0.334981,4.6268e-16,16777216,True,value2 = scalar multiplications
+matmul,Strassen (cutoff 32),256,,0.295029,3.4958e-15,11239424,True,value2 = scalar multiplications
+matmul,numpy @ (BLAS),512,,0.00100267,0,134217728,True,value2 = scalar multiplications
+strassen_error,classical (float32 BLAS),32,,,2.09288e-07,,True,max relative error vs float64
+strassen_error,Strassen float32 (cutoff 16),32,,,3.86988e-07,,True,max relative error vs float64
+strassen_error,classical (float32 BLAS),64,,,3.27195e-07,,True,max relative error vs float64
+strassen_error,Strassen float32 (cutoff 16),64,,,7.42624e-07,,True,max relative error vs float64
+strassen_error,classical (float32 BLAS),128,,,5.4124e-07,,True,max relative error vs float64
+strassen_error,Strassen float32 (cutoff 16),128,,,2.39372e-06,,True,max relative error vs float64
+strassen_error,classical (float32 BLAS),256,,,7.89335e-07,,True,max relative error vs float64
+strassen_error,Strassen float32 (cutoff 16),256,,,4.9759e-06,,True,max relative error vs float64
+strassen_error,classical (float32 BLAS),512,,,1.33238e-06,,True,max relative error vs float64
+strassen_error,Strassen float32 (cutoff 16),512,,,1.23202e-05,,True,max relative error vs float64
+decomposition,LU (ours),25,,0.000222839,1.55431e-15,,True,value = reconstruction/solution error
+decomposition,solve via LU (ours),25,,0.000262136,4.74198e-15,,True,value = reconstruction/solution error
+decomposition,numpy.linalg.solve,25,,6.12332e-06,0,,True,value = reconstruction/solution error
+decomposition,Householder QR (ours),25,,0.00024747,2.88658e-15,,True,value = reconstruction/solution error
+decomposition,modified Gram-Schmidt (ours),25,,0.000144453,8.88178e-16,,True,value = reconstruction/solution error
+decomposition,numpy.linalg.qr,25,,1.69133e-05,1.33227e-15,,True,value = reconstruction/solution error
+decomposition,log-determinant (ours),25,,0.000219642,1.37384e-16,,True,value = reconstruction/solution error
+decomposition,LU (ours),50,,0.000486219,2.66454e-15,,True,value = reconstruction/solution error
+decomposition,solve via LU (ours),50,,0.000564176,1.48447e-14,,True,value = reconstruction/solution error
+decomposition,numpy.linalg.solve,50,,1.62692e-05,0,,True,value = reconstruction/solution error
+decomposition,Householder QR (ours),50,,0.000679092,3.9968e-15,,True,value = reconstruction/solution error
+decomposition,modified Gram-Schmidt (ours),50,,0.00041633,1.77636e-15,,True,value = reconstruction/solution error
+decomposition,numpy.linalg.qr,50,,5.52233e-05,5.32907e-15,,True,value = reconstruction/solution error
+decomposition,log-determinant (ours),50,,0.000504223,2.05223e-16,,True,value = reconstruction/solution error
+decomposition,LU (ours),100,,0.00152486,4.88498e-15,,True,value = reconstruction/solution error
+decomposition,solve via LU (ours),100,,0.00143428,4.53664e-14,,True,value = reconstruction/solution error
+decomposition,numpy.linalg.solve,100,,4.95125e-05,0,,True,value = reconstruction/solution error
+decomposition,Householder QR (ours),100,,0.00266033,5.77316e-15,,True,value = reconstruction/solution error
+decomposition,modified Gram-Schmidt (ours),100,,0.00188881,2.66454e-15,,True,value = reconstruction/solution error
+decomposition,numpy.linalg.qr,100,,0.000187187,3.9968e-15,,True,value = reconstruction/solution error
+decomposition,log-determinant (ours),100,,0.00250833,0,,True,value = reconstruction/solution error
+decomposition,LU (ours),200,,0.00737314,1.28786e-14,,True,value = reconstruction/solution error
+decomposition,solve via LU (ours),200,,0.00527299,2.57412e-14,,True,value = reconstruction/solution error
+decomposition,numpy.linalg.solve,200,,0.000146157,0,,True,value = reconstruction/solution error
+decomposition,Householder QR (ours),200,,0.0105009,7.54952e-15,,True,value = reconstruction/solution error
+decomposition,modified Gram-Schmidt (ours),200,,0.009024,5.77316e-15,,True,value = reconstruction/solution error
+decomposition,numpy.linalg.qr,200,,0.000716083,8.43769e-15,,True,value = reconstruction/solution error
+decomposition,log-determinant (ours),200,,0.00567529,1.32467e-16,,True,value = reconstruction/solution error
+decomposition,LU (ours),400,,0.0283818,2.66454e-14,,True,value = reconstruction/solution error
+decomposition,solve via LU (ours),400,,0.0295116,3.24303e-14,,True,value = reconstruction/solution error
+decomposition,numpy.linalg.solve,400,,0.000594551,0,,True,value = reconstruction/solution error
+decomposition,Householder QR (ours),400,,0.0727347,1.22125e-14,,True,value = reconstruction/solution error
+decomposition,modified Gram-Schmidt (ours),400,,0.0469274,7.54952e-15,,True,value = reconstruction/solution error
+decomposition,numpy.linalg.qr,400,,0.00382928,1.15463e-14,,True,value = reconstruction/solution error
+decomposition,log-determinant (ours),400,,0.0305315,0,,True,value = reconstruction/solution error
+conditioning,Hilbert,2,5.66105e-16,,19.2815,5.66105e-16,True,value = κ₂ (ours; numpy 19.3); value2 = LU solve error; parameter = no-pivot error
+conditioning,Vandermonde (equispaced),2,0,,2.61803,0,True,value = κ₂ (ours; numpy 2.62); value2 = LU solve error; parameter = no-pivot error
+conditioning,random Gaussian,2,1.366e-14,,2.3524,0,True,value = κ₂ (ours; numpy 2.35); value2 = LU solve error; parameter = no-pivot error
+conditioning,Hilbert,3,1.4233e-14,,524.057,6.313e-16,True,value = κ₂ (ours; numpy 524); value2 = LU solve error; parameter = no-pivot error
+conditioning,Vandermonde (equispaced),3,0,,15.0997,0,True,value = κ₂ (ours; numpy 15.1); value2 = LU solve error; parameter = no-pivot error
+conditioning,random Gaussian,3,1.81299e-16,,4.51213,1.81299e-16,True,value = κ₂ (ours; numpy 4.51); value2 = LU solve error; parameter = no-pivot error
+conditioning,Hilbert,4,1.04207e-13,,15513.7,1.51191e-13,True,value = κ₂ (ours; numpy 1.55e+04); value2 = LU solve error; parameter = no-pivot error
+conditioning,Vandermonde (equispaced),4,3.7238e-15,,98.8677,2.19813e-15,True,value = κ₂ (ours; numpy 98.9); value2 = LU solve error; parameter = no-pivot error
+conditioning,random Gaussian,4,5.14789e-16,,6.16915,2.28878e-16,True,value = κ₂ (ours; numpy 6.17); value2 = LU solve error; parameter = no-pivot error
+conditioning,Hilbert,5,5.25986e-14,,476607,1.25102e-11,True,value = κ₂ (ours; numpy 4.77e+05); value2 = LU solve error; parameter = no-pivot error
+conditioning,Vandermonde (equispaced),5,0,,686.435,0,True,value = κ₂ (ours; numpy 686); value2 = LU solve error; parameter = no-pivot error
+conditioning,random Gaussian,5,2.85221e-16,,34.1789,7.29713e-16,True,value = κ₂ (ours; numpy 34.2); value2 = LU solve error; parameter = no-pivot error
+conditioning,Hilbert,6,5.0017e-11,,1.49511e+07,2.43408e-10,True,value = κ₂ (ours; numpy 1.5e+07); value2 = LU solve error; parameter = no-pivot error
+conditioning,Vandermonde (equispaced),6,8.115e-14,,4924.37,2.02886e-13,True,value = κ₂ (ours; numpy 4.92e+03); value2 = LU solve error; parameter = no-pivot error
+conditioning,random Gaussian,6,1.42845e-14,,26.7436,8.5878e-16,True,value = κ₂ (ours; numpy 26.7); value2 = LU solve error; parameter = no-pivot error
+conditioning,Hilbert,7,9.3065e-11,,4.75367e+08,5.87641e-09,True,value = κ₂ (ours; numpy 4.75e+08); value2 = LU solve error; parameter = no-pivot error
+conditioning,Vandermonde (equispaced),7,3.1766e-13,,36061.2,1.07615e-12,True,value = κ₂ (ours; numpy 3.61e+04); value2 = LU solve error; parameter = no-pivot error
+conditioning,random Gaussian,7,2.00807e-15,,16.5995,2.68691e-16,True,value = κ₂ (ours; numpy 16.6); value2 = LU solve error; parameter = no-pivot error
+conditioning,Hilbert,8,2.22539e-07,,1.52576e+10,1.22337e-07,True,value = κ₂ (ours; numpy 1.53e+10); value2 = LU solve error; parameter = no-pivot error
+conditioning,Vandermonde (equispaced),8,6.6765e-13,,267817,1.4332e-12,True,value = κ₂ (ours; numpy 2.68e+05); value2 = LU solve error; parameter = no-pivot error
+conditioning,random Gaussian,8,5.89269e-15,,9.79647,1.41526e-16,True,value = κ₂ (ours; numpy 9.8); value2 = LU solve error; parameter = no-pivot error
+conditioning,Hilbert,9,6.18495e-06,,4.93153e+11,7.7679e-07,True,value = κ₂ (ours; numpy 4.93e+11); value2 = LU solve error; parameter = no-pivot error
+conditioning,Vandermonde (equispaced),9,0,,2.0094e+06,0,True,value = κ₂ (ours; numpy 2.01e+06); value2 = LU solve error; parameter = no-pivot error
+conditioning,random Gaussian,9,5.72803e-15,,28.2338,5.81617e-16,True,value = κ₂ (ours; numpy 28.2); value2 = LU solve error; parameter = no-pivot error
+conditioning,Hilbert,10,0.000586543,,1.60246e+13,7.90567e-05,True,value = κ₂ (ours; numpy 1.6e+13); value2 = LU solve error; parameter = no-pivot error
+conditioning,Vandermonde (equispaced),10,3.7413e-10,,1.51932e+07,2.28303e-10,True,value = κ₂ (ours; numpy 1.52e+07); value2 = LU solve error; parameter = no-pivot error
+conditioning,random Gaussian,10,4.13057e-15,,29.9625,3.33067e-16,True,value = κ₂ (ours; numpy 30); value2 = LU solve error; parameter = no-pivot error
+conditioning,Hilbert,11,0.00704437,,5.21761e+14,0.000698188,True,value = κ₂ (ours; numpy 5.22e+14); value2 = LU solve error; parameter = no-pivot error
+conditioning,Vandermonde (equispaced),11,1.74904e-09,,1.15575e+08,2.86653e-09,True,value = κ₂ (ours; numpy 1.16e+08); value2 = LU solve error; parameter = no-pivot error
+conditioning,random Gaussian,11,3.53799e-14,,60.1236,1.26408e-15,True,value = κ₂ (ours; numpy 60.1); value2 = LU solve error; parameter = no-pivot error
+conditioning,Hilbert,12,0.0234895,,1.59511e+16,0.215453,True,value = κ₂ (ours; numpy 1.66e+16); value2 = LU solve error; parameter = no-pivot error
+conditioning,Vandermonde (equispaced),12,3.01322e-09,,8.83479e+08,2.32315e-08,True,value = κ₂ (ours; numpy 8.83e+08); value2 = LU solve error; parameter = no-pivot error
+conditioning,random Gaussian,12,8.00721e-15,,106.548,4.26365e-15,True,value = κ₂ (ours; numpy 107); value2 = LU solve error; parameter = no-pivot error
+conditioning,Hilbert,13,6.49369,,1.9655e+17,0.0490119,True,value = κ₂ (ours; numpy 4.32e+18); value2 = LU solve error; parameter = no-pivot error
+conditioning,Vandermonde (equispaced),13,9.26966e-08,,6.78059e+09,1.12727e-07,True,value = κ₂ (ours; numpy 6.78e+09); value2 = LU solve error; parameter = no-pivot error
+conditioning,random Gaussian,13,1.01785e-14,,22.9596,1.1038e-15,True,value = κ₂ (ours; numpy 23); value2 = LU solve error; parameter = no-pivot error
+conditioning,Hilbert,14,28.2317,,5.73817e+18,8.92991,True,value = κ₂ (ours; numpy 3.66e+17); value2 = LU solve error; parameter = no-pivot error
+conditioning,Vandermonde (equispaced),14,2.47891e-08,,5.22149e+10,6.89325e-07,True,value = κ₂ (ours; numpy 5.22e+10); value2 = LU solve error; parameter = no-pivot error
+conditioning,random Gaussian,14,8.94392e-14,,260.461,2.68576e-15,True,value = κ₂ (ours; numpy 260); value2 = LU solve error; parameter = no-pivot error
+qr_orthogonality,classical Gram-Schmidt,40,10,,5.70515e-15,1.5831e-16,True,value = ‖QᵀQ − I‖_F; value2 = ‖QR − A‖/‖A‖
+qr_orthogonality,modified Gram-Schmidt,40,10,,3.55229e-15,2.08538e-16,True,value = ‖QᵀQ − I‖_F; value2 = ‖QR − A‖/‖A‖
+qr_orthogonality,Householder,40,10,,4.54812e-15,5.98706e-16,True,value = ‖QᵀQ − I‖_F; value2 = ‖QR − A‖/‖A‖
+qr_orthogonality,classical Gram-Schmidt,40,1000,,1.2745e-11,2.13264e-16,True,value = ‖QᵀQ − I‖_F; value2 = ‖QR − A‖/‖A‖
+qr_orthogonality,modified Gram-Schmidt,40,1000,,1.05706e-13,2.13602e-16,True,value = ‖QᵀQ − I‖_F; value2 = ‖QR − A‖/‖A‖
+qr_orthogonality,Householder,40,1000,,4.72995e-15,5.44723e-16,True,value = ‖QᵀQ − I‖_F; value2 = ‖QR − A‖/‖A‖
+qr_orthogonality,classical Gram-Schmidt,40,100000,,7.27172e-08,2.05094e-16,True,value = ‖QᵀQ − I‖_F; value2 = ‖QR − A‖/‖A‖
+qr_orthogonality,modified Gram-Schmidt,40,100000,,6.05043e-12,2.12305e-16,True,value = ‖QᵀQ − I‖_F; value2 = ‖QR − A‖/‖A‖
+qr_orthogonality,Householder,40,100000,,4.97995e-15,4.73111e-16,True,value = ‖QᵀQ − I‖_F; value2 = ‖QR − A‖/‖A‖
+qr_orthogonality,classical Gram-Schmidt,40,1e+07,,0.00363893,2.14167e-16,True,value = ‖QᵀQ − I‖_F; value2 = ‖QR − A‖/‖A‖
+qr_orthogonality,modified Gram-Schmidt,40,1e+07,,3.1538e-10,1.97258e-16,True,value = ‖QᵀQ − I‖_F; value2 = ‖QR − A‖/‖A‖
+qr_orthogonality,Householder,40,1e+07,,4.15411e-15,5.80754e-16,True,value = ‖QᵀQ − I‖_F; value2 = ‖QR − A‖/‖A‖
+qr_orthogonality,classical Gram-Schmidt,40,1e+09,,6.39734,1.98571e-16,True,value = ‖QᵀQ − I‖_F; value2 = ‖QR − A‖/‖A‖
+qr_orthogonality,modified Gram-Schmidt,40,1e+09,,8.35185e-08,1.9485e-16,True,value = ‖QᵀQ − I‖_F; value2 = ‖QR − A‖/‖A‖
+qr_orthogonality,Householder,40,1e+09,,5.08879e-15,8.92695e-16,True,value = ‖QᵀQ − I‖_F; value2 = ‖QR − A‖/‖A‖
+qr_orthogonality,classical Gram-Schmidt,40,1e+11,,8.76255,2.09115e-16,True,value = ‖QᵀQ − I‖_F; value2 = ‖QR − A‖/‖A‖
+qr_orthogonality,modified Gram-Schmidt,40,1e+11,,4.83453e-06,2.00109e-16,True,value = ‖QᵀQ − I‖_F; value2 = ‖QR − A‖/‖A‖
+qr_orthogonality,Householder,40,1e+11,,4.35023e-15,4.68177e-16,True,value = ‖QᵀQ − I‖_F; value2 = ‖QR − A‖/‖A‖
+qr_orthogonality,classical Gram-Schmidt,40,1e+13,,16.0024,2.01149e-16,True,value = ‖QᵀQ − I‖_F; value2 = ‖QR − A‖/‖A‖
+qr_orthogonality,modified Gram-Schmidt,40,1e+13,,0.000371953,1.96726e-16,True,value = ‖QᵀQ − I‖_F; value2 = ‖QR − A‖/‖A‖
+qr_orthogonality,Householder,40,1e+13,,4.22922e-15,3.20099e-16,True,value = ‖QᵀQ − I‖_F; value2 = ‖QR − A‖/‖A‖
+qr_orthogonality,classical Gram-Schmidt,40,1e+15,,18.8104,2.05586e-16,True,value = ‖QᵀQ − I‖_F; value2 = ‖QR − A‖/‖A‖
+qr_orthogonality,modified Gram-Schmidt,40,1e+15,,0.0522648,2.07706e-16,True,value = ‖QᵀQ − I‖_F; value2 = ‖QR − A‖/‖A‖
+qr_orthogonality,Householder,40,1e+15,,4.36183e-15,3.61595e-16,True,value = ‖QᵀQ − I‖_F; value2 = ‖QR − A‖/‖A‖
+lu_growth,partial pivoting,60,,,4.01492,2.07374e-14,True,value = mean growth factor; value2 = mean solve error
+lu_growth,no pivoting,60,,,1803.25,6.1922e-12,True,value = mean growth factor; value2 = mean solve error
+lu_tiny_pivot,partial pivoting,2,,,0,,True,"solution [1.0, 1.0]"
+lu_tiny_pivot,no pivoting,2,,,0.707107,,True,"solution [0.0, 1.0]"
+cancellation,"(1 - cos x)/x^2, x = 1e-8",,,,1,0,True,value = naive relative error; value2 = stable
+cancellation,"sqrt(x+1) - sqrt(x), x = 1e12",,,,7.61449e-06,2.11758e-16,True,value = naive relative error; value2 = stable
+cancellation,small root of x^2 + 1e8 x + 1,,,,0.254942,0,True,value = naive relative error; value2 = stable
+cancellation,"variance of 1e9 + {4, 7, 13, 16}",,,,6.68889,0,True,value = naive relative error; value2 = stable
+cancellation,sum of 0.1 x 10^6,,,,1.33288e-11,0,True,value = naive relative error; value2 = stable
+cancellation,exp(-20) by Taylor series,,,,1.52401,0,True,value = naive relative error; value2 = stable
+summation,naive loop,1000,,,2.03446e-15,,True,relative error (1e-18 = exact)
+summation,pairwise,1000,,,1e-18,,True,relative error (1e-18 = exact)
+summation,Kahan compensated,1000,,,1e-18,,True,relative error (1e-18 = exact)
+summation,naive loop,10000,,,5.26312e-15,,True,relative error (1e-18 = exact)
+summation,pairwise,10000,,,1e-18,,True,relative error (1e-18 = exact)
+summation,Kahan compensated,10000,,,1e-18,,True,relative error (1e-18 = exact)
+summation,naive loop,100000,,,3.43476e-15,,True,relative error (1e-18 = exact)
+summation,pairwise,100000,,,1.27213e-16,,True,relative error (1e-18 = exact)
+summation,Kahan compensated,100000,,,1e-18,,True,relative error (1e-18 = exact)
+summation,naive loop,1000000,,,9.81737e-15,,True,relative error (1e-18 = exact)
+summation,pairwise,1000000,,,1e-18,,True,relative error (1e-18 = exact)
+summation,Kahan compensated,1000000,,,1e-18,,True,relative error (1e-18 = exact)
+power_method,power method,50,0.5,,34,4.44089e-16,True,iterations; theory ≈ log(1e-10)/log(r) = 33
+power_method,power method,50,0.8,,99,4.44089e-16,True,iterations; theory ≈ log(1e-10)/log(r) = 103
+power_method,power method,50,0.9,,203,0,True,iterations; theory ≈ log(1e-10)/log(r) = 219
+power_method,power method,50,0.95,,403,4.44089e-16,True,iterations; theory ≈ log(1e-10)/log(r) = 449
+power_method,power method,50,0.99,,1892,4.44089e-16,True,iterations; theory ≈ log(1e-10)/log(r) = 2291
+window,rectangular,,,,-13.2565,1,True,value = highest sidelobe dB; value2 = main-lobe half width (bins)
+window,hann,,,,-31.4677,2,True,value = highest sidelobe dB; value2 = main-lobe half width (bins)
+window,hamming,,,,-42.4496,2,True,value = highest sidelobe dB; value2 = main-lobe half width (bins)
+window,blackman,,,,-58.1101,3,True,value = highest sidelobe dB; value2 = main-lobe half width (bins)
+peak_accuracy,rectangular,4096,-10,,0.26867,1.95312,True,value = median |error| Hz; value2 = bin width Hz
+peak_accuracy,hann,4096,-10,,0.0788994,1.95312,True,value = median |error| Hz; value2 = bin width Hz
+peak_accuracy,blackman,4096,-10,,0.0771266,1.95312,True,value = median |error| Hz; value2 = bin width Hz
+peak_accuracy,rectangular,4096,-5,,0.271317,1.95312,True,value = median |error| Hz; value2 = bin width Hz
+peak_accuracy,hann,4096,-5,,0.0501283,1.95312,True,value = median |error| Hz; value2 = bin width Hz
+peak_accuracy,blackman,4096,-5,,0.049064,1.95312,True,value = median |error| Hz; value2 = bin width Hz
+peak_accuracy,rectangular,4096,0,,0.264583,1.95312,True,value = median |error| Hz; value2 = bin width Hz
+peak_accuracy,hann,4096,0,,0.0339519,1.95312,True,value = median |error| Hz; value2 = bin width Hz
+peak_accuracy,blackman,4096,0,,0.0287833,1.95312,True,value = median |error| Hz; value2 = bin width Hz
+peak_accuracy,rectangular,4096,5,,0.256962,1.95312,True,value = median |error| Hz; value2 = bin width Hz
+peak_accuracy,hann,4096,5,,0.0266256,1.95312,True,value = median |error| Hz; value2 = bin width Hz
+peak_accuracy,blackman,4096,5,,0.0195558,1.95312,True,value = median |error| Hz; value2 = bin width Hz
+peak_accuracy,rectangular,4096,10,,0.247278,1.95312,True,value = median |error| Hz; value2 = bin width Hz
+peak_accuracy,hann,4096,10,,0.0209151,1.95312,True,value = median |error| Hz; value2 = bin width Hz
+peak_accuracy,blackman,4096,10,,0.0134283,1.95312,True,value = median |error| Hz; value2 = bin width Hz
+peak_accuracy,rectangular,4096,20,,0.239219,1.95312,True,value = median |error| Hz; value2 = bin width Hz
+peak_accuracy,hann,4096,20,,0.0206934,1.95312,True,value = median |error| Hz; value2 = bin width Hz
+peak_accuracy,blackman,4096,20,,0.00907039,1.95312,True,value = median |error| Hz; value2 = bin width Hz
+peak_accuracy,rectangular,4096,40,,0.237155,1.95312,True,value = median |error| Hz; value2 = bin width Hz
+peak_accuracy,hann,4096,40,,0.0198014,1.95312,True,value = median |error| Hz; value2 = bin width Hz
+peak_accuracy,blackman,4096,40,,0.00822073,1.95312,True,value = median |error| Hz; value2 = bin width Hz
+psd_variance,periodogram,16384,,,0.999165,,True,relative std of the PSD of white noise (ideal 0)
+psd_variance,"Welch (256, 50%)",16384,,,0.089322,,True,relative std of the PSD of white noise (ideal 0)
+fft_filter,brick-wall FFT low-pass,16384,-4.45241e-05,,-72.2928,0.0841798,True,value = stopband tone change dB; value2 = step overshoot; parameter = passband tone change dB
+fft_filter,raised-cosine 600 Hz transition,16384,-4.61677e-05,,-72.3363,0.0762676,True,value = stopband tone change dB; value2 = step overshoot; parameter = passband tone change dB
+fft_filter,raised-cosine 1200 Hz transition,16384,-5.27721e-05,,-72.4852,0.0533236,True,value = stopband tone change dB; value2 = step overshoot; parameter = passband tone change dB
+fir_window,rectangular,101,,,-31.0835,,True,"worst stopband gain (dB) above 1300 Hz, 101 taps"
+fir_window,hann,101,,,-62.0826,,True,"worst stopband gain (dB) above 1300 Hz, 101 taps"
+fir_window,hamming,101,,,-56.1814,,True,"worst stopband gain (dB) above 1300 Hz, 101 taps"
+fir_window,blackman,101,,,-75.2533,,True,"worst stopband gain (dB) above 1300 Hz, 101 taps"
+compression,shapes,256,5,0.326221,26.2839,0.122217,True,value = PSNR dB; value2 = bits/pixel; SSIM 0.8870; file ratio 25.26; zeros 0.971
+compression,shapes,256,10,0.366738,28.6506,0.181138,True,value = PSNR dB; value2 = bits/pixel; SSIM 0.9197; file ratio 19.08; zeros 0.963
+compression,shapes,256,20,0.280159,31.0477,0.264201,True,value = PSNR dB; value2 = bits/pixel; SSIM 0.9435; file ratio 14.59; zeros 0.953
+compression,shapes,256,30,0.292758,32.6385,0.322448,True,value = PSNR dB; value2 = bits/pixel; SSIM 0.9548; file ratio 12.55; zeros 0.946
+compression,shapes,256,50,0.481811,34.625,0.405324,True,value = PSNR dB; value2 = bits/pixel; SSIM 0.9683; file ratio 11.01; zeros 0.935
+compression,shapes,256,70,0.336986,37.2805,0.550594,True,value = PSNR dB; value2 = bits/pixel; SSIM 0.9771; file ratio 9.39; zeros 0.912
+compression,shapes,256,85,0.334303,42.405,0.712527,True,value = PSNR dB; value2 = bits/pixel; SSIM 0.9897; file ratio 7.81; zeros 0.891
+compression,shapes,256,95,0.388491,51.8553,0.971644,True,value = PSNR dB; value2 = bits/pixel; SSIM 0.9985; file ratio 6.24; zeros 0.867
+compression,texture,256,5,0.297837,26.446,0.12569,True,value = PSNR dB; value2 = bits/pixel; SSIM 0.7111; file ratio 20.88; zeros 0.973
+compression,texture,256,10,0.373809,30.7594,0.264222,True,value = PSNR dB; value2 = bits/pixel; SSIM 0.8666; file ratio 12.39; zeros 0.942
+compression,texture,256,20,0.319197,34.856,0.454817,True,value = PSNR dB; value2 = bits/pixel; SSIM 0.9397; file ratio 8.12; zeros 0.904
+compression,texture,256,30,0.365864,37.4275,0.585306,True,value = PSNR dB; value2 = bits/pixel; SSIM 0.9652; file ratio 6.63; zeros 0.882
+compression,texture,256,50,0.333331,40.3753,0.777907,True,value = PSNR dB; value2 = bits/pixel; SSIM 0.9814; file ratio 5.23; zeros 0.852
+compression,texture,256,70,0.468471,43.3559,1.01775,True,value = PSNR dB; value2 = bits/pixel; SSIM 0.9903; file ratio 4.17; zeros 0.818
+compression,texture,256,85,0.362192,47.1019,1.38282,True,value = PSNR dB; value2 = bits/pixel; SSIM 0.9958; file ratio 3.22; zeros 0.771
+compression,texture,256,95,0.336045,52.5193,2.15264,True,value = PSNR dB; value2 = bits/pixel; SSIM 0.9988; file ratio 2.24; zeros 0.687
+conv2d,FFT 2-D convolution,256,3,0.0732172,5.4349e-16,,True,parameter = kernel side
+conv2d,direct (shift-add),256,3,0.000400608,0,,True,parameter = kernel side
+conv2d,FFT 2-D convolution,256,5,0.086458,6.80738e-16,,True,parameter = kernel side
+conv2d,direct (shift-add),256,5,0.000746157,0,,True,parameter = kernel side
+conv2d,FFT 2-D convolution,256,9,0.0863055,1.01356e-15,,True,parameter = kernel side
+conv2d,direct (shift-add),256,9,0.00254432,0,,True,parameter = kernel side
+conv2d,FFT 2-D convolution,256,15,0.1399,1.70477e-15,,True,parameter = kernel side
+conv2d,direct (shift-add),256,15,0.00839624,0,,True,parameter = kernel side
+conv2d,FFT 2-D convolution,256,25,0.106371,2.90637e-15,,True,parameter = kernel side
+conv2d,direct (shift-add),256,25,0.0195173,0,,True,parameter = kernel side
+conv2d,FFT 2-D convolution,256,41,0.109174,4.69385e-15,,True,parameter = kernel side
+conv2d,direct (shift-add),256,41,0.0583596,0,,True,parameter = kernel side
+conv2d,FFT 2-D convolution,256,61,0.104976,7.06365e-15,,True,parameter = kernel side
+conv2d,direct (shift-add),256,61,0.111944,0,,True,parameter = kernel side
+conv2d,FFT 2-D convolution,256,81,0.086297,9.24607e-15,,True,parameter = kernel side
+conv2d,direct (shift-add),256,81,0.206425,0,,True,parameter = kernel side
+denoise,noisy input,256,0.05,,26.0239,,True,value = PSNR dB; parameter = noise σ
+denoise,Gaussian blur σ=1,256,0.05,,26.6491,,True,value = PSNR dB; parameter = noise σ
+denoise,FFT low-pass 0.15,256,0.05,,25.7128,,True,value = PSNR dB; parameter = noise σ
+denoise,noisy input,256,0.1,,20.0133,,True,value = PSNR dB; parameter = noise σ
+denoise,Gaussian blur σ=1,256,0.1,,25.5664,,True,value = PSNR dB; parameter = noise σ
+denoise,FFT low-pass 0.15,256,0.1,,24.7196,,True,value = PSNR dB; parameter = noise σ
+denoise,noisy input,256,0.2,,13.9573,,True,value = PSNR dB; parameter = noise σ
+denoise,Gaussian blur σ=1,256,0.2,,22.8334,,True,value = PSNR dB; parameter = noise σ
+denoise,FFT low-pass 0.15,256,0.2,,22.1399,,True,value = PSNR dB; parameter = noise σ
+periodic_noise,stripes added,256,,,17.0067,,True,PSNR dB; 10 spectral bins notched
+periodic_noise,spikes notched,256,,,32.8725,,True,PSNR dB; 10 spectral bins notched
+hum_removal,least-squares subtraction,32000,,,-46.7073,,True,residual hum relative to original hum (dB)
+hum_removal,FFT band-stop notches,32000,,,-16.5431,,True,residual hum relative to original hum (dB)
+spectral_gating,spectral gating,32000,0,,5.77182,,True,value = output SNR dB; parameter = input SNR dB
+spectral_gating,spectral gating,32000,5,,11.9714,,True,value = output SNR dB; parameter = input SNR dB
+spectral_gating,spectral gating,32000,10,,18.4344,,True,value = output SNR dB; parameter = input SNR dB
+spectral_gating,spectral gating,32000,15,,23.246,,True,value = output SNR dB; parameter = input SNR dB
+spectral_gating,spectral gating,32000,20,,27.7665,,True,value = output SNR dB; parameter = input SNR dB
+period_detection,7-day cycle,1460,,,1,,True,fraction of synthetic series where it was found (±5%)
+period_detection,365-day cycle,1460,,,1,,True,fraction of synthetic series where it was found (±5%)
+acf,FFT (Wiener-Khinchin),1000,999,0.0001927,8.32667e-17,,True,
+acf,direct O(n²),1000,999,0.000573835,,,True,
+acf,FFT (Wiener-Khinchin),4000,3999,0.000697586,2.77556e-17,,True,
+acf,direct O(n²),4000,3999,0.00358205,,,True,
+acf,FFT (Wiener-Khinchin),16000,15999,0.00355657,2.25514e-17,,True,
+acf,direct O(n²),16000,15999,0.0313612,,,True,
+acf,FFT (Wiener-Khinchin),64000,63999,0.0220183,4.38018e-17,,True,
